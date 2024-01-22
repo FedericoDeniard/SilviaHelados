@@ -1,18 +1,41 @@
 import logo from "../../assets/mainlogo.png";
 import instagram from "../../assets/instagram.svg";
+import facebook from "../../assets/facebook.svg";
+import tiktok from "../../assets/tiktok.svg";
 import "./index.css";
 
 const Header = ({ aboutUs, products, flavors }) => {
+  //Redirect Functions
+  const instagramRedirect = () => {
+    window.open("https://www.instagram.com/helado_silvia/");
+  };
+  const facebookRedirect = () => {
+    window.open("https://www.facebook.com/heladosilvia");
+  };
+
+  const tiktokRedirect = () => {
+    window.open("https://www.tiktok.com/@helado.silvia");
+  };
+
   return (
     <header className="header">
       <div className="header__contact-info">
-        <p>Contacto: heladeria@gmail.com</p>
+        <p>
+          <strong>Email:</strong> silviapaleteria@gmail.com
+        </p>
+        <p>
+          <strong>Teléfono: </strong> 1166521715 CABA / 3444 419359 Gualeguay
+        </p>
         <div className="header__contact-info__social-media">
-          <p>
+          <p className="social" onClick={instagramRedirect}>
             <img className="instagram-svg" src={instagram}></img>Instagram
           </p>
-          <p>facebook</p>
-          <p>otras</p>
+          <p className="social" onClick={facebookRedirect}>
+            <img className="facebook-svg" src={facebook}></img>Facebook
+          </p>
+          <p className="social" onClick={tiktokRedirect}>
+            <img className="tiktok-svg" src={tiktok}></img>Tiktok
+          </p>
         </div>
       </div>
       <img className="main-logo" src={logo}></img>

@@ -29,7 +29,9 @@
     display: flex;
 }
 
-.instagram-svg {
+.instagram-svg,
+.facebook-svg,
+.tiktok-svg {
     margin-top: 3px;
     height: 20px;
 }
@@ -44,7 +46,16 @@
     margin: auto;
 }
 
+.header__contact-info strong {
+    margin-right: 4px;
+}
+
 .main-header__button {
     text-shadow: 1.5px 1.5px #fff;
+    cursor: pointer;
+}
+
+
+.social {
     cursor: pointer;
 }
