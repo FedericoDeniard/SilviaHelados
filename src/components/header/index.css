@@ -20,8 +20,10 @@
 }
 
 .main-logo {
-    height: 200px;
+    height: 180px;
     position: absolute;
+    left: 15px;
+    top: 50px;
 }
 
 .header__contact-info__social-media {
