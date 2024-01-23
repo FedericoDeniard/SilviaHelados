@@ -14,6 +14,7 @@
     font-size: clamp(25px, 4vw, 50px);
     color: #ab4696;
     text-shadow: 2px 2px #fff;
+    padding-top: 5px;
 }
 
 .products {
@@ -30,21 +31,24 @@
     overflow-y: hidden;
     height: 100%;
     scroll-snap-type: x mandatory;
+    position: relative;
 }
 
-/* .arrow {
+.arrow {
     position: absolute;
     height: 100px;
     top: 45%;
+    cursor: pointer;
+    z-index: 100;
 }
 
 .arrow-left {
-    left: 20%;
+    left: 0;
 }
 
 .arrow-right {
     right: 0;
-} */
+}
 
 
 .paletas {
@@ -54,7 +58,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 15px;
+    margin: auto;
     scroll-snap-align: start;
 }
 
@@ -65,7 +69,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 15px;
+    margin: auto;
     scroll-snap-align: start;
 }
 
@@ -74,7 +78,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-height: 500px;
+    max-height: 620px;
     font-size: clamp(15px, 5vw, 30px);
     padding: 0px 5px;
 
@@ -122,7 +126,7 @@
 .section {
     height: 100vh;
     background-size: cover;
-    padding: 70px 0;
+    padding: 0px 0;
     text-align: center;
     box-sizing: border-box;
 }
@@ -134,5 +138,20 @@
         overflow-y: scroll;
         width: fit-content;
         padding: 0px 5px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .section:first-child {
+        padding: 70px 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    ::-webkit-scrollbar,
+    ::-webkit-scrollbar-track {
+        position: absolute;
+        top: -10000000px;
     }
 }

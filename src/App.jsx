@@ -1,7 +1,7 @@
 import Header from "./components/header";
 import Footer from "./components/footer";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import arrowleft from "./assets/arows/left.svg";
 import arrowRight from "./assets/arows/right.svg";
 
@@ -34,6 +34,41 @@ function App() {
     }
   };
 
+  //  ProductScroll
+  const product1 = useRef(null);
+  const product0 = useRef(null);
+
+  const [scrollProductPosition, setScrollProductPosition] = useState(0);
+
+  const scrollRightIndex = () => {
+    if (scrollProductPosition < 1) {
+      setScrollProductPosition(scrollProductPosition + 1);
+    }
+  };
+
+  const scrollLeftIndex = () => {
+    if (scrollProductPosition > 0) {
+      setScrollProductPosition(scrollProductPosition - 1);
+    }
+  };
+
+  useEffect(() => {
+    switch (scrollProductPosition) {
+      case 0:
+        product0.current.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+        break;
+      case 1:
+        product1.current.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+        break;
+    }
+  }, [scrollProductPosition]);
+
   return (
     <div
       onClick={() => {
@@ -60,7 +95,7 @@ function App() {
           <div className="products__pages">
             <div className="paletas">
               <h4 className="subtitle">Paletas</h4>
-              <ul className="paletas__list">
+              <ul className="paletas__list" ref={product0}>
                 <li> BANANA SPLIT 110 g</li>
                 <li> BANANA 110 g</li>
                 <li> CHOCO CHIPS 110 g</li>
@@ -87,7 +122,7 @@ function App() {
             </div>
             <div className="otros">
               <h4 className="subtitle"> Otros </h4>
-              <ul className="otros__list">
+              <ul className="otros__list" ref={product1}>
                 <li>Batido</li>
                 <li>Milkshake</li>
                 <li>Paleta Grande</li>
@@ -99,8 +134,16 @@ function App() {
               </ul>
             </div>
           </div>
-          {/* <img className="arrow-left arrow" src={arrowleft}></img>
-          <img className="arrow-right arrow" src={arrowRight}></img> */}
+          <img
+            onClick={scrollLeftIndex}
+            className="arrow-left arrow"
+            src={arrowleft}
+          ></img>
+          <img
+            onClick={scrollRightIndex}
+            className="arrow-right arrow"
+            src={arrowRight}
+          ></img>
         </main>
         <main className="flavors section" id="flavors">
           <h1 className="flavors__title title">Sabores de helado</h1>
