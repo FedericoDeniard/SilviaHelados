@@ -7,10 +7,12 @@ const ShopInfo = () => {
   const [locationIsPressed, setLocationIsPressed] = useState(false);
   const [timeIsPressed, setTimeIsPressed] = useState(false);
 
-  const locationPressed = () => {
+  const locationPressed = (event) => {
+    event.preventDefault();
     setLocationIsPressed(true);
   };
-  const timePressed = () => {
+  const timePressed = (event) => {
+    event.preventDefault();
     setTimeIsPressed(true);
   };
 
@@ -22,12 +24,17 @@ const ShopInfo = () => {
     setLocationIsPressed(false);
   };
 
+  const disableContextMenu = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <ul className="example-1">
       <li
         className={`icon-content ${locationIsPressed ? "pressed" : ""}`}
         onTouchStart={locationPressed}
         onTouchEnd={clearLocationPressed}
+        onContextMenu={disableContextMenu}
       >
         <a className="link" data-social="location" aria-label="location">
           <img className="location-img" src={location}></img>
@@ -43,6 +50,7 @@ const ShopInfo = () => {
         className={`icon-content ${timeIsPressed ? "pressed" : ""}`}
         onTouchStart={timePressed}
         onTouchEnd={clearTimePressed}
+        onContextMenu={disableContextMenu}
       >
         <a className="link" data-social="time" aria-label="time">
           <img className="time-img" src={time}></img>

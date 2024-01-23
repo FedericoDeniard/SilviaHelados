@@ -35,7 +35,7 @@ ul {
 .example-1 .icon-content.pressed .tooltip {
     opacity: 1;
     visibility: visible;
-    top: -60px;
+    top: -100px;
 }
 
 .example-1 .icon-content .link {
