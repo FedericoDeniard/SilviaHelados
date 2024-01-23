@@ -1,6 +1,6 @@
 .about-us {
 
-    background: url("./assets/local.jpg") no-repeat center center fixed;
+    background: url("./assets/local.jpg") no-repeat center center;
 
 }
 
@@ -12,12 +12,12 @@
 }
 
 .products {
-    background: url("./assets/about_us-transformed.jpeg") no-repeat center center fixed;
+    background: url("./assets/about_us-transformed.jpeg") no-repeat center center;
 
 }
 
 .flavors {
-    background: url("./assets/sabores.jpg") no-repeat center center fixed;
+    background: url("./assets/sabores.jpg") no-repeat center center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,9 +40,11 @@
     color: #ff679a;
 }
 
+
 .section {
     height: 100vh;
     background-size: cover;
     padding: 100px 0;
     text-align: center;
+    box-sizing: border-box;
 }

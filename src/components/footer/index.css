@@ -8,4 +8,6 @@
     justify-content: space-evenly;
     align-items: center;
     font-size: clamp(15px, 1.5vw, 22px);
+    color: #fff;
+    text-shadow: 2px 2px #ab4696;
 }
