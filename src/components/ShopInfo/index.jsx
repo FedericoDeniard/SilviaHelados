@@ -7,12 +7,10 @@ const ShopInfo = () => {
   const [locationIsPressed, setLocationIsPressed] = useState(false);
   const [timeIsPressed, setTimeIsPressed] = useState(false);
 
-  const locationPressed = (event) => {
-    event.preventDefault();
+  const locationPressed = () => {
     setLocationIsPressed(true);
   };
-  const timePressed = (event) => {
-    event.preventDefault();
+  const timePressed = () => {
     setTimeIsPressed(true);
   };
 
