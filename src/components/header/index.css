@@ -8,9 +8,18 @@
 .header__contact-info {
     height: 40px;
     background-color: #3ef3fb;
+
+}
+
+.header__contact-info__pc {
     display: flex;
     padding: 0px 40px;
     justify-content: space-between;
+    height: 100%;
+}
+
+.header__contact-info__mobile {
+    display: none;
 }
 
 .header__contact-info p {
@@ -60,4 +69,49 @@
 
 .social {
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 170px;
+    }
+
+    .main_header {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        height: 114px;
+    }
+
+    .header__contact-info {
+        height: fit-content;
+        padding: 5px 5px;
+    }
+
+    .header__contact-info__pc {
+        display: none;
+    }
+
+    .header__contact-info__mobile {
+        display: flex;
+    }
+
+    .main-logo {
+        top: 60px;
+    }
+
+    .social-media__container {
+        z-index: 100;
+        border: none;
+        background-color: transparent;
+        position: relative;
+        top: 0;
+        left: 0;
+        transition: top .4s ease, left .4s ease;
+    }
+
+    .social-media__container.active {
+        top: 60px;
+        left: 60px;
+    }
 }

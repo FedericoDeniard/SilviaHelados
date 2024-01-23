@@ -3,8 +3,10 @@ import instagram from "../../assets/instagram.svg";
 import facebook from "../../assets/facebook.svg";
 import tiktok from "../../assets/tiktok.svg";
 import "./index.css";
+import SocialMedia from "../SocialMedia";
+import { useState } from "react";
 
-const Header = ({ aboutUs, products, flavors }) => {
+const Header = ({ aboutUs, products, flavors, isActive, classActive }) => {
   //Redirect Functions
   const instagramRedirect = () => {
     window.open("https://www.instagram.com/helado_silvia/");
@@ -20,22 +22,32 @@ const Header = ({ aboutUs, products, flavors }) => {
   return (
     <header className="header">
       <div className="header__contact-info">
-        <p>
-          <strong>Email:</strong> silviapaleteria@gmail.com
-        </p>
-        <p>
-          <strong>Teléfono: </strong> 1166521715 CABA / 3444 419359 Gualeguay
-        </p>
-        <div className="header__contact-info__social-media">
-          <p className="social" onClick={instagramRedirect}>
-            <img className="instagram-svg" src={instagram}></img>Instagram
+        <div className="header__contact-info__pc">
+          <p>
+            <strong>Email:</strong> silviapaleteria@gmail.com
           </p>
-          <p className="social" onClick={facebookRedirect}>
-            <img className="facebook-svg" src={facebook}></img>Facebook
+          <p>
+            <strong>Teléfono: </strong> 1166521715 CABA / 3444 419359 Gualeguay
           </p>
-          <p className="social" onClick={tiktokRedirect}>
-            <img className="tiktok-svg" src={tiktok}></img>Tiktok
-          </p>
+          <div className="header__contact-info__social-media">
+            <p className="social" onClick={instagramRedirect}>
+              <img className="instagram-svg" src={instagram}></img>Instagram
+            </p>
+            <p className="social" onClick={facebookRedirect}>
+              <img className="facebook-svg" src={facebook}></img>Facebook
+            </p>
+            <p className="social" onClick={tiktokRedirect}>
+              <img className="tiktok-svg" src={tiktok}></img>Tiktok
+            </p>
+          </div>
+        </div>
+        <div className="header__contact-info__mobile">
+          <div
+            onClick={classActive}
+            className={`social-media__container ${isActive ? "active" : ""}`}
+          >
+            <SocialMedia isActive={isActive} />
+          </div>
         </div>
       </div>
       <img className="main-logo" src={logo}></img>

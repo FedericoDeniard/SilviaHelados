@@ -1,6 +1,7 @@
 import Header from "./components/header";
 import Footer from "./components/footer";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
   // Header redirections
@@ -15,9 +16,38 @@ function App() {
     window.location.href = "#flavors";
   };
 
+  const [isActive, setIsActive] = useState(false);
+
+  const classActive = () => {
+    setIsActive(!isActive);
+  };
+
+  const classActiveRemove = (event, toRemove) => {
+    if (
+      event.type === "touchstart" &&
+      !event.target.closest(toRemove) &&
+      !event.target.classList.contains(toRemove.slice(1))
+    ) {
+      setIsActive(false);
+    }
+  };
+
   return (
-    <>
-      <Header aboutUs={aboutUs} products={products} flavors={flavors} />
+    <div
+      onClick={() => {
+        classActiveRemove(".social-media__container");
+      }}
+      onTouchStart={(event) =>
+        classActiveRemove(event, ".social-media__container")
+      }
+    >
+      <Header
+        aboutUs={aboutUs}
+        products={products}
+        flavors={flavors}
+        isActive={isActive}
+        classActive={classActive}
+      />
       <main className="about-us section" id="about-us">
         <h1 className="about-us__title title">Sobre Nosotros</h1>
       </main>
@@ -39,7 +69,7 @@ function App() {
         </ul>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
