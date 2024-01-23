@@ -6,15 +6,87 @@
 
 .title {
     font-size: clamp(35px, 10vw, 60px);
-    ;
     color: #ff679a;
+    text-shadow: 2px 2px #fff;
+}
+
+.subtitle {
+    font-size: clamp(25px, 4vw, 50px);
+    color: #ab4696;
     text-shadow: 2px 2px #fff;
 }
 
 .products {
     background: url("./assets/about_us-transformed.jpeg") no-repeat center center;
-
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
+
+.products__pages {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100%;
+    scroll-snap-type: x mandatory;
+}
+
+/* .arrow {
+    position: absolute;
+    height: 100px;
+    top: 45%;
+}
+
+.arrow-left {
+    left: 20%;
+}
+
+.arrow-right {
+    right: 0;
+} */
+
+
+.paletas {
+    height: 100%;
+    flex: 0 0 auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    scroll-snap-align: start;
+}
+
+.otros {
+    height: 100%;
+    flex: 0 0 auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    scroll-snap-align: start;
+}
+
+.paletas__list,
+.otros__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 500px;
+    font-size: clamp(15px, 5vw, 30px);
+    padding: 0px 5px;
+
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 
 .flavors {
     background: url("./assets/sabores.jpg") no-repeat center center;
@@ -29,22 +101,38 @@
     flex-direction: column;
     width: fit-content;
     list-style-type: none;
-    text-shadow: 1.2px 1.2px #000;
+
 }
 
-.flavors__list li:nth-child(odd) {
+.flavors__list li:nth-child(odd),
+.paletas__list li:nth-child(odd),
+.otros__list li:nth-child(odd) {
     color: #fff;
+    text-shadow: 1.2px 1.2px #ab4696;
 }
 
-.flavors__list li:nth-child(even) {
+.flavors__list li:nth-child(even),
+.paletas__list li:nth-child(even),
+.otros__list li:nth-child(even) {
     color: #ff679a;
+    text-shadow: 1.2px 1.2px #ab4696;
 }
 
 
 .section {
     height: 100vh;
     background-size: cover;
-    padding: 100px 0;
+    padding: 70px 0;
     text-align: center;
     box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    .paletas__list {
+        height: 100%;
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+        width: fit-content;
+        padding: 0px 5px;
+    }
 }

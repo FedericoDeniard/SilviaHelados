@@ -2,6 +2,8 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import "./App.css";
 import { useState } from "react";
+import arrowleft from "./assets/arows/left.svg";
+import arrowRight from "./assets/arows/right.svg";
 
 function App() {
   // Header redirections
@@ -55,6 +57,50 @@ function App() {
         </main>
         <main className="products section" id="products">
           <h1 className="products__title title">Nuestros Productos</h1>
+          <div className="products__pages">
+            <div className="paletas">
+              <h4 className="subtitle">Paletas</h4>
+              <ul className="paletas__list">
+                <li> BANANA SPLIT 110 g</li>
+                <li> BANANA 110 g</li>
+                <li> CHOCO CHIPS 110 g</li>
+                <li> CHOCOLATE 110 g</li>
+                <li> CREMA DEL CIELO 110 g</li>
+                <li> DDL GRANIZADO 110 g</li>
+                <li> DULCE DE LECHE 110 g</li>
+                <li> DUO CHOCO / DDL 110 g</li>
+                <li> DUO CHOCO / FRESA 110 g</li>
+                <li> DUO MANTE / DDL 110g</li>
+                <li> DUO MANTE/CHOCO 110 g</li>
+                <li> DUO MANT/FRESA 110 g</li>
+                <li> FRESA 110 g</li>
+                <li> FRESA TOVAR 110 g</li>
+                <li> FRUTOS ROJOS 110 g</li>
+                <li> MANTECADO 110 g</li>
+                <li> MANTECADO OREO 110 g</li>
+                <li> MENTA GRANIZADA 110 g</li>
+                <li> PISTACHO 110 g</li>
+                <li> SUPER DULCE DE LECHE 110 g</li>
+                <li> TRAMONTANA 110 g</li>
+                <li> NARANJA / VAINILLA 110 g</li>
+              </ul>
+            </div>
+            <div className="otros">
+              <h4 className="subtitle"> Otros </h4>
+              <ul className="otros__list">
+                <li>Batido</li>
+                <li>Milkshake</li>
+                <li>Paleta Grande</li>
+                <li>Paleta Pequeña</li>
+                <li>Conos 1 Bocha / 2 Bochas / 3 Bochas</li>
+                <li>Capelina</li>
+                <li>Tinitas</li>
+                <li>Vasitos</li>
+              </ul>
+            </div>
+          </div>
+          {/* <img className="arrow-left arrow" src={arrowleft}></img>
+          <img className="arrow-right arrow" src={arrowRight}></img> */}
         </main>
         <main className="flavors section" id="flavors">
           <h1 className="flavors__title title">Sabores de helado</h1>
