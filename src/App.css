@@ -149,18 +149,39 @@
 
 @media screen and (max-width: 768px) {
 
+    .products__pages {
+        gap: 10px;
+    }
+
     .paletas__list,
     .flavors__list {
-        height: 100%;
+        height: fit-content;
+        max-height: 100vh;
         flex-wrap: nowrap;
         overflow-y: scroll;
         width: fit-content;
         padding: 0px 5px;
         margin-bottom: 5px;
+        margin-left: 40px;
+
     }
 
     .arrow {
         height: 55px;
+        display: none;
+    }
+
+    .otros,
+    .paletas {
+        width: 80vw;
+    }
+
+    .paletas__list {
+        width: 100%;
+    }
+
+    .otros__list {
+        width: 80%;
     }
 }
 
