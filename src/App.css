@@ -138,6 +138,11 @@
         overflow-y: scroll;
         width: fit-content;
         padding: 0px 5px;
+        margin-bottom: 5px;
+    }
+
+    .arrow {
+        height: 55px;
     }
 }
 
