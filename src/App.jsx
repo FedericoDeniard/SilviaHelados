@@ -148,15 +148,69 @@ function App() {
         <main className="flavors section" id="flavors">
           <h1 className="flavors__title title">Sabores de helado</h1>
           <ul className="flavors__list">
-            <li>Mantecado y Oreo</li>
-            <li>Fresa Tovar</li>
-            <li>Mantecado y Dulce de Leche</li>
-            <li>Crema del cielo</li>
-            <li>Duo Mantecado y Chocolate</li>
-            <li>Limón</li>
-            <li>Kiwi y Naranja</li>
-            <li>Ananá</li>
-            <li>Palito Napolitano</li>
+            <ul>
+              <li>
+                <strong className="flavors__strong">Crema</strong>
+              </li>
+              <li>Banana</li>
+              <li>Banana Split</li>
+              <li>Crema del Cielo</li>
+              <li>Fresa</li>
+              <li>Fresa Tovar</li>
+              <li>Naranja-Vainilla</li>
+              <li>Pistacho</li>
+              <li>Toddy</li>
+            </ul>
+
+            <ul>
+              <li>
+                <strong className="flavors__strong">Dulce de leche</strong>
+              </li>
+              <li>Dulce de Leche Clásico</li>
+              <li>Dulce de Leche Granizado</li>
+              <li>Super Dulce de Leche</li>
+              <li>Dulce de Leche con Maní</li>
+              <li>Dulce de Leche con Oreo</li>
+              <li>Chocotorta</li>
+            </ul>
+
+            <ul>
+              <li>
+                <strong className="flavors__strong">Chocolate</strong>
+              </li>
+              <li>Chocolate Clásico</li>
+              <li>Chocolate Granizado</li>
+              <li>Chocolate Shot</li>
+              <li>Chocolate Almendra</li>
+              <li>Chocolate Tentación</li>
+              <li>Chocolate Blanco</li>
+              <li>Ferrero Rocher</li>
+              <li>Chocolate Bariloche</li>
+            </ul>
+
+            <ul>
+              <li>
+                <strong className="flavors__strong">Crema</strong>
+              </li>
+              <li>Mantecado</li>
+              <li>Mantecado Clásico</li>
+              <li>Mantecado Granizado</li>
+              <li>Mantecado Oreo</li>
+              <li>Mantecado Dulce de Leche</li>
+              <li>Tramontana</li>
+              <li>Torta Suiza</li>
+            </ul>
+
+            <ul>
+              <li>
+                <strong className="flavors__strong">Especiales</strong>
+              </li>
+              <li>Coco</li>
+              <li>Cheesecake</li>
+              <li>Ron Pasas</li>
+              <li>Frutos Rojos</li>
+              <li>Menta Granizada</li>
+            </ul>
           </ul>
         </main>
       </article>
