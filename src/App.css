@@ -51,31 +51,25 @@
 }
 
 
-.paletas {
+.paletas,
+.otros,
+.potes {
     height: 100%;
     flex: 0 0 auto;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto;
-    scroll-snap-align: start;
-}
-
-.otros {
-    height: 100%;
-    flex: 0 0 auto;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* justify-content: center; */
+    /* Si Activo esto se rompe el scroll */
     margin: auto;
     scroll-snap-align: start;
 }
 
 .paletas__list,
 .otros__list,
-.flavors__list {
+.flavors__list,
+.potes__list {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -118,14 +112,16 @@
 
 .flavors__list li:nth-child(odd),
 .paletas__list li:nth-child(odd),
-.otros__list li:nth-child(odd) {
+.otros__list li:nth-child(odd),
+.potes__list li:nth-child(odd) {
     color: #fff;
     text-shadow: 1.2px 1.2px #ab4696;
 }
 
 .flavors__list li:nth-child(even),
 .paletas__list li:nth-child(even),
-.otros__list li:nth-child(even) {
+.otros__list li:nth-child(even),
+.potes__list li:nth-child(even) {
     color: #ff679a;
     text-shadow: 1.2px 1.2px #ab4696;
 }
@@ -154,16 +150,17 @@
     }
 
     .paletas__list,
-    .flavors__list {
+    .flavors__list,
+    .otros__list,
+    .potes__list {
         height: fit-content;
-        max-height: 100vh;
+        max-height: 90vh;
         flex-wrap: nowrap;
         overflow-y: scroll;
         width: fit-content;
         padding: 0px 5px;
         margin-bottom: 5px;
         margin-left: 40px;
-
     }
 
     .arrow {
@@ -172,17 +169,21 @@
     }
 
     .otros,
-    .paletas {
+    .paletas,
+    .potes {
         width: 80vw;
     }
 
-    .paletas__list {
-        width: 100%;
+    .paletas__list,
+    .otros__list,
+    .potes__list {
+        width: fit-content;
     }
 
-    .otros__list {
-        width: 80%;
+    .potes {
+        margin-right: 50px;
     }
+
 }
 
 @media screen and (max-width: 860px) {

@@ -35,13 +35,14 @@ function App() {
   };
 
   //  ProductScroll
-  const product1 = useRef(null);
-  const product0 = useRef(null);
+  const product0 = useRef(null); //Paletas
+  const product1 = useRef(null); //Otros
+  const product2 = useRef(null); //Potes familiares
 
   const [scrollProductPosition, setScrollProductPosition] = useState(0);
 
   const scrollRightIndex = () => {
-    if (scrollProductPosition < 1) {
+    if (scrollProductPosition < 2) {
       setScrollProductPosition(scrollProductPosition + 1);
     }
   };
@@ -62,6 +63,12 @@ function App() {
         break;
       case 1:
         product1.current.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+        break;
+      case 2:
+        product2.current.scrollIntoView({
           behavior: "smooth",
           block: "center",
         });
@@ -131,6 +138,34 @@ function App() {
                 <li>Capelina</li>
                 <li>Tinitas</li>
                 <li>Vasitos</li>
+              </ul>
+            </div>
+            <div className="potes">
+              <h4 className="subtitle">Potes Familiares</h4>
+              <ul className="potes__list" ref={product2}>
+                <li>Pote Banana Split 1L</li>
+                <li>Pote Choco Chips 1L</li>
+                <li>Pote Chocolate 1L</li>
+                <li>Pote Crema del Cielo 1L</li>
+                <li>Pote DDL Granizado 1L</li>
+                <li>Pote Dulce de Leche 1L</li>
+                <li>Pote Duo Fresa / DDL 1L</li>
+                <li>Pote DuoFresa / Choco 1L</li>
+                <li>Pote Duo Mant / DDL 1L</li>
+                <li>Pote Duo Mant/Choco 1L</li>
+                <li>Pote Duo Mant/Fresa 1L</li>
+                <li>Pote Fresa 1L</li>
+                <li>Pote Fresa Tovar 1L</li>
+                <li>Pote Frutos Rojos 1L</li>
+                <li>Pote Mantecado 1L</li>
+                <li>Pote Mantecado Oreo 1L</li>
+                <li>Pote Menta Granizada 1L</li>
+                <li>Pote Pistacho 1L</li>
+                <li>Pote Super Dulce de Leche 1L</li>
+                <li>Pote Tramontana 1L</li>
+                <li>Pote Naranja / Vainilla 1L</li>
+                <li>Pote Napolitano 1L</li>
+                <li>Pote Napolitano 3L</li>
               </ul>
             </div>
           </div>
