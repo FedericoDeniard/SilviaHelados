@@ -150,6 +150,14 @@ function App() {
           <ul className="flavors__list">
             <ul>
               <li>
+                <strong className="flavors__strong">Helado para servir</strong>
+              </li>
+              <li>1/4 Kg Helado Artesanal</li>
+              <li>1/2 Kg Helado Artesanal</li>
+              <li>1 Kg Helado Artesanal</li>
+            </ul>
+            <ul>
+              <li>
                 <strong className="flavors__strong">Crema</strong>
               </li>
               <li>Banana</li>
