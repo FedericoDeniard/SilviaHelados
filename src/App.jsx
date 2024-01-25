@@ -58,19 +58,19 @@ function App() {
       case 0:
         product0.current.scrollIntoView({
           behavior: "smooth",
-          block: "center",
+          inline: "center",
         });
         break;
       case 1:
         product1.current.scrollIntoView({
           behavior: "smooth",
-          block: "center",
+          inline: "center",
         });
         break;
       case 2:
         product2.current.scrollIntoView({
           behavior: "smooth",
-          block: "center",
+          inline: "center",
         });
         break;
     }
