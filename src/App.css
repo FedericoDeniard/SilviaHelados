@@ -318,6 +318,11 @@
         padding: 0px 5px;
         margin-bottom: 5px;
         margin-left: 40px;
+        margin: auto;
+    }
+
+    .flavors__list {
+        margin: auto;
     }
 
     .arrow {
