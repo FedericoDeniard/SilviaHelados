@@ -6,15 +6,86 @@
 
 .title {
     font-size: clamp(35px, 10vw, 60px);
-    ;
     color: #ff679a;
     text-shadow: 2px 2px #fff;
 }
 
+.subtitle {
+    font-size: clamp(25px, 4vw, 50px);
+    color: #ab4696;
+    text-shadow: 2px 2px #fff;
+    padding-top: 5px;
+}
+
 .products {
     background: url("./assets/about_us-transformed.jpeg") no-repeat center center;
-
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
+
+.products__pages {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100%;
+    scroll-snap-type: x mandatory;
+    position: relative;
+}
+
+.arrow {
+    position: absolute;
+    height: 100px;
+    top: 45%;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.arrow-left {
+    left: 0;
+}
+
+.arrow-right {
+    right: 0;
+}
+
+
+.paletas,
+.otros,
+.potes {
+    height: 100%;
+    flex: 0 0 auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* Si Activo esto se rompe el scroll */
+    margin: auto;
+    scroll-snap-align: start;
+}
+
+.paletas__list,
+.otros__list,
+.flavors__list,
+.potes__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 620px;
+    font-size: clamp(15px, 5vw, 30px);
+    padding: 0px 5px;
+
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 
 .flavors {
     background: url("./assets/sabores.jpg") no-repeat center center;
@@ -23,28 +94,109 @@
     align-items: center;
 }
 
-.flavors__list {
+/* .flavors__list {
     font-size: clamp(25px, 5vw, 40px);
     display: flex;
     flex-direction: column;
     width: fit-content;
     list-style-type: none;
-    text-shadow: 1.2px 1.2px #000;
-}
+} */
 
-.flavors__list li:nth-child(odd) {
+/* .flavors__list ul {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    max-height: 600px;
+} */
+
+.flavors__list li:nth-child(odd),
+.paletas__list li:nth-child(odd),
+.otros__list li:nth-child(odd),
+.potes__list li:nth-child(odd) {
     color: #fff;
+    text-shadow: 1.2px 1.2px #ab4696;
 }
 
-.flavors__list li:nth-child(even) {
+.flavors__list li:nth-child(even),
+.paletas__list li:nth-child(even),
+.otros__list li:nth-child(even),
+.potes__list li:nth-child(even) {
     color: #ff679a;
+    text-shadow: 1.2px 1.2px #ab4696;
 }
 
+.flavors__strong {
+    color: #fdd928;
+    text-shadow: 1px 1px #000;
+}
 
 .section {
     height: 100vh;
     background-size: cover;
-    padding: 100px 0;
+    padding: 0px 0;
     text-align: center;
     box-sizing: border-box;
+}
+
+.flavors__list ul {
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .products__pages {
+        gap: 10px;
+    }
+
+    .paletas__list,
+    .flavors__list,
+    .otros__list,
+    .potes__list {
+        height: fit-content;
+        max-height: 90vh;
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+        width: fit-content;
+        padding: 0px 5px;
+        margin-bottom: 5px;
+        margin-left: 40px;
+    }
+
+    .arrow {
+        height: 55px;
+        display: none;
+    }
+
+    .otros,
+    .paletas,
+    .potes {
+        width: 80vw;
+    }
+
+    .paletas__list,
+    .otros__list,
+    .potes__list {
+        width: fit-content;
+    }
+
+    .potes {
+        margin-right: 50px;
+    }
+
+}
+
+@media screen and (max-width: 860px) {
+    .section:first-child {
+        padding: 70px 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    ::-webkit-scrollbar,
+    ::-webkit-scrollbar-track {
+        position: absolute;
+        top: -10000000px;
+    }
 }
