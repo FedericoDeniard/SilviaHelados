@@ -143,6 +143,166 @@
     margin-bottom: 20px;
 }
 
+/* Formulario de contacto */
+.contact-us {
+    background-color: #999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.contact-us__form {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    width: fit-content;
+    gap: 20px;
+    align-items: center;
+
+
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.contact-us__form div {
+    gap: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    font-size: clamp(20px, 5vw, 30px);
+    color: #ab4696
+}
+
+.form-errors {
+    color: #FF6961;
+    text-shadow: .5px .5px #ab4696;
+    font-size: 20px;
+}
+
+.provincia {
+    border: solid 1.5px #ff679a;
+    border-radius: 1rem;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #f5f5f5;
+    position: relative;
+    resize: none;
+    width: 100%;
+}
+
+
+.provincia option {
+    color: #000;
+    border: solid 1.5px #ff679a;
+    border-radius: 1rem;
+}
+
+.provincia-label {
+    position: absolute;
+    background-color: #adadad;
+    left: 15px;
+    transform: translateY(-50%) scale(0.8);
+}
+
+.input-group {
+    position: relative;
+}
+
+.input {
+    border: solid 1.5px #ff679a;
+    border-radius: 1rem;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #f5f5f5;
+    transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+}
+
+.user-label {
+    position: absolute;
+    left: 15px;
+    color: #e8e8e8;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input:focus,
+input:valid {
+    outline: none;
+    border: 1.5px solid #ff679a;
+}
+
+.input:focus~label,
+input:valid~label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: #adadad;
+    padding: 0 .2em;
+    color: #ab4696;
+}
+
+/* Button */
+.send-form {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+}
+
+.send-form::before,
+.send-form::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.send-form::before {
+    left: -10px;
+    background: #ff679a;
+}
+
+.send-form::after {
+    right: -10px;
+    background: #ab4696;
+}
+
+.send-form:hover::before,
+.send-form:hover::after {
+    width: 58%;
+}
+
+.send-form:hover span {
+    color: #fff;
+    transition: 0.3s;
+}
+
+.send-form span {
+    color: #ff679a;
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+}
+
+
 @media screen and (max-width: 768px) {
 
     .products__pages {
