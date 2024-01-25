@@ -312,6 +312,25 @@ function App() {
               </label>
             </div>
             <div className="input-group">
+              <input
+                className="input"
+                type="email"
+                {...register("email", {
+                  required: { value: true, message: "Ingrese su correo" },
+                  pattern: {
+                    value: /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]$/,
+                    message: "Correo no válido",
+                  },
+                })}
+              />
+              <label className="user-label" htmlFor="email">
+                Email
+              </label>
+              {errors.email && (
+                <span className="form-errors">{errors.email.message}</span>
+              )}
+            </div>
+            <div className="input-group">
               <select
                 className="provincia"
                 {...register("provincia", {
@@ -384,25 +403,7 @@ function App() {
                 </>
               )}
             </div>
-            <div className="input-group">
-              <input
-                className="input"
-                type="email"
-                {...register("email", {
-                  required: { value: true, message: "Ingrese su correo" },
-                  pattern: {
-                    value: /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]$/,
-                    message: "Correo no válido",
-                  },
-                })}
-              />
-              <label className="user-label" htmlFor="email">
-                Email
-              </label>
-              {errors.email && (
-                <span className="form-errors">{errors.email.message}</span>
-              )}
-            </div>
+
             <div className="input-group">
               <input className="input" type="Subject" {...register("asunto")} />
               <label className="user-label" htmlFor="Subject">
