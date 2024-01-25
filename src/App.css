@@ -160,6 +160,7 @@
     width: fit-content;
     gap: 20px;
     align-items: center;
+    margin: auto;
 
 
     /* Glassmorphism */
