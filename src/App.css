@@ -132,7 +132,7 @@
 }
 
 .section {
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
     padding: 0px 0;
     text-align: center;
@@ -149,7 +149,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    height: fit-content;
+    padding-bottom: 10px;
 }
 
 .contact-us__form {
@@ -302,6 +303,10 @@ input:valid~label {
     transition: all 0.3s ease-in;
 }
 
+.direccion,
+.cp {
+    margin-top: 20px;
+}
 
 @media screen and (max-width: 768px) {
 

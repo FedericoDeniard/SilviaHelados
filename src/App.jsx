@@ -93,6 +93,15 @@ function App() {
     reset();
   });
 
+  const handleInputChange = (event) => {
+    autoExpand(event.target);
+  };
+
+  function autoExpand(textarea) {
+    textarea.style.height = "fit-content";
+    textarea.style.height = textarea.scrollHeight + "px";
+  }
+
   return (
     <div
       onClick={() => {
@@ -343,6 +352,37 @@ function App() {
               {errors.provincia && (
                 <span className="form-errors">{errors.provincia.message}</span>
               )}
+              {watch("provincia") && (
+                <>
+                  <div className="input-group direccion">
+                    <input
+                      className="input"
+                      type="text"
+                      {...register("direccion", {
+                        required: {
+                          value: true,
+                          message: "Porfavor, complete la dirección",
+                        },
+                      })}
+                    />
+                    <label className="user-label">Dirección</label>
+                  </div>
+                  <div className="input-group cp">
+                    <input
+                      className="input"
+                      type="text"
+                      {...register("cp", {
+                        required: {
+                          value: true,
+                          message: "Ingrese su código postal",
+                        },
+                        minLength: { value: 4, messagege: "Minimo 4 dígitos" },
+                      })}
+                    />
+                    <label className="user-label">Código postal</label>
+                  </div>
+                </>
+              )}
             </div>
             <div className="input-group">
               <input
@@ -372,6 +412,7 @@ function App() {
             <div className="input-group">
               <textarea
                 className="provincia"
+                onInput={handleInputChange}
                 {...register("mensaje", {
                   required: {
                     value: true,
