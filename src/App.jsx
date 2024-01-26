@@ -35,48 +35,6 @@ function App() {
     }
   };
 
-  //  ProductScroll
-  const product0 = useRef(null); //Paletas
-  const product1 = useRef(null); //Otros
-  const product2 = useRef(null); //Potes familiares
-
-  const [scrollProductPosition, setScrollProductPosition] = useState(0);
-
-  const scrollRightIndex = () => {
-    if (scrollProductPosition < 2) {
-      setScrollProductPosition(scrollProductPosition + 1);
-    }
-  };
-
-  const scrollLeftIndex = () => {
-    if (scrollProductPosition > 0) {
-      setScrollProductPosition(scrollProductPosition - 1);
-    }
-  };
-
-  useEffect(() => {
-    switch (scrollProductPosition) {
-      case 0:
-        product0.current.scrollIntoView({
-          behavior: "smooth",
-          inline: "center",
-        });
-        break;
-      case 1:
-        product1.current.scrollIntoView({
-          behavior: "smooth",
-          inline: "center",
-        });
-        break;
-      case 2:
-        product2.current.scrollIntoView({
-          behavior: "smooth",
-          inline: "center",
-        });
-        break;
-    }
-  }, [scrollProductPosition]);
-
   // Contact Form
 
   const {
@@ -102,6 +60,24 @@ function App() {
     textarea.style.height = textarea.scrollHeight + "px";
   }
 
+  // New scroll
+
+  const containerRef = useRef(null);
+
+  const scrollRight = () => {
+    const container = containerRef.current;
+    if (container) {
+      container.scrollLeft += 1100;
+    }
+  };
+
+  const scrollLeft = () => {
+    const container = containerRef.current;
+    if (container) {
+      container.scrollLeft -= 1100;
+    }
+  };
+
   return (
     <div
       onClick={() => {
@@ -125,10 +101,10 @@ function App() {
         </main>
         <main className="products section" id="products">
           <h1 className="products__title title">Nuestros Productos</h1>
-          <div className="products__pages">
+          <div className="products__pages" ref={containerRef}>
             <div className="paletas">
               <h4 className="subtitle">Paletas</h4>
-              <ul className="paletas__list" ref={product0}>
+              <ul className="paletas__list">
                 <li> BANANA SPLIT 110 g</li>
                 <li> BANANA 110 g</li>
                 <li> CHOCO CHIPS 110 g</li>
@@ -155,7 +131,7 @@ function App() {
             </div>
             <div className="otros">
               <h4 className="subtitle"> Otros </h4>
-              <ul className="otros__list" ref={product1}>
+              <ul className="otros__list">
                 <li>Batido</li>
                 <li>Milkshake</li>
                 <li>Paleta Grande</li>
@@ -168,7 +144,7 @@ function App() {
             </div>
             <div className="potes">
               <h4 className="subtitle">Potes Familiares</h4>
-              <ul className="potes__list" ref={product2}>
+              <ul className="potes__list">
                 <li>Pote Banana Split 1L</li>
                 <li>Pote Choco Chips 1L</li>
                 <li>Pote Chocolate 1L</li>
@@ -196,12 +172,12 @@ function App() {
             </div>
           </div>
           <img
-            onClick={scrollLeftIndex}
+            onClick={scrollLeft}
             className="arrow-left arrow"
             src={arrowleft}
           ></img>
           <img
-            onClick={scrollRightIndex}
+            onClick={scrollRight}
             className="arrow-right arrow"
             src={arrowRight}
           ></img>
