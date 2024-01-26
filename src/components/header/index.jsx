@@ -31,13 +31,19 @@ const Header = ({ aboutUs, products, flavors, isActive, classActive }) => {
           </p>
           <div className="header__contact-info__social-media">
             <p className="social" onClick={instagramRedirect}>
-              <img className="instagram-svg" src={instagram}></img>Instagram
+              <img
+                className="instagram-svg"
+                alt="instagram"
+                src={instagram}
+              ></img>
+              Instagram
             </p>
             <p className="social" onClick={facebookRedirect}>
-              <img className="facebook-svg" src={facebook}></img>Facebook
+              <img className="facebook-svg" alt="facebook" src={facebook}></img>
+              Facebook
             </p>
             <p className="social" onClick={tiktokRedirect}>
-              <img className="tiktok-svg" src={tiktok}></img>Tiktok
+              <img className="tiktok-svg" alt="tiktok" src={tiktok}></img>Tiktok
             </p>
           </div>
         </div>
@@ -50,7 +56,7 @@ const Header = ({ aboutUs, products, flavors, isActive, classActive }) => {
           </div>
         </div>
       </div>
-      <img className="main-logo" src={logo}></img>
+      <img className="main-logo" alt="Helado Silvia Logo" src={logo}></img>
       <div className="main_header">
         <h4 onClick={aboutUs} className="main-header__button">
           Nosotros
