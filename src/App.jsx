@@ -67,14 +67,14 @@ function App() {
   const scrollRight = () => {
     const container = containerRef.current;
     if (container) {
-      container.scrollLeft += 1100;
+      container.scrollLeft += container.clientWidth;
     }
   };
 
   const scrollLeft = () => {
     const container = containerRef.current;
     if (container) {
-      container.scrollLeft -= 1100;
+      container.scrollLeft -= container.clientWidth;
     }
   };
 
