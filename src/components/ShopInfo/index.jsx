@@ -35,7 +35,7 @@ const ShopInfo = () => {
         onContextMenu={disableContextMenu}
       >
         <a className="link" data-social="location" aria-label="location">
-          <img className="location-img" src={location}></img>
+          <img className="location-img" alt="ubicación" src={location}></img>
         </a>
         <div className="tooltip">
           Gualeguay/CABA
@@ -51,7 +51,7 @@ const ShopInfo = () => {
         onContextMenu={disableContextMenu}
       >
         <a className="link" data-social="time" aria-label="time">
-          <img className="time-img" src={time}></img>
+          <img className="time-img" alt="horario" src={time}></img>
         </a>
         <div className="tooltip">Abierto de 10am a 22pm</div>
       </li>

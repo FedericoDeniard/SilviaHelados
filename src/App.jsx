@@ -175,11 +175,13 @@ function App() {
             onClick={scrollLeft}
             className="arrow-left arrow"
             src={arrowleft}
+            alt="Left arrow"
           ></img>
           <img
             onClick={scrollRight}
             className="arrow-right arrow"
             src={arrowRight}
+            alt="Left arrow"
           ></img>
         </main>
         <main className="flavors section" id="flavors">
@@ -274,7 +276,7 @@ function App() {
                   maxLength: { value: 20, message: "Máximo 20 caracteres" },
                 })}
               />
-              <label className="user-label" htmlFor="nombre">
+              <label className="user-label" htmlFor="name">
                 Nombre
               </label>
               {errors.nombre && (
@@ -282,7 +284,12 @@ function App() {
               )}
             </div>
             <div className="input-group">
-              <input className="input" type="text" {...register("empresa")} />
+              <input
+                className="input"
+                name="empresa"
+                type="text"
+                {...register("empresa")}
+              />
               <label className="user-label" htmlFor="empresa">
                 Empresa
               </label>
@@ -290,6 +297,7 @@ function App() {
             <div className="input-group">
               <input
                 className="input"
+                name="email"
                 type="email"
                 {...register("email", {
                   required: { value: true, message: "Ingrese su correo" },
@@ -309,6 +317,7 @@ function App() {
             <div className="input-group">
               <select
                 className="provincia"
+                name="provincia"
                 {...register("provincia", {
                   required: {
                     value: true,
@@ -343,7 +352,9 @@ function App() {
                 </option>
                 <option value="TUC">Tucumán</option>
               </select>
-              <label className="provincia-label">Provincia</label>
+              <label className="provincia-label" htmlFor="provincia">
+                Provincia
+              </label>
               {errors.provincia && (
                 <span className="form-errors">{errors.provincia.message}</span>
               )}
@@ -353,6 +364,7 @@ function App() {
                     <input
                       className="input"
                       type="text"
+                      name="adress"
                       {...register("direccion", {
                         required: {
                           value: true,
@@ -360,12 +372,15 @@ function App() {
                         },
                       })}
                     />
-                    <label className="user-label">Dirección</label>
+                    <label className="user-label" htmlFor="adress">
+                      Dirección
+                    </label>
                   </div>
                   <div className="input-group cp">
                     <input
                       className="input"
                       type="text"
+                      name="cp"
                       {...register("cp", {
                         required: {
                           value: true,
@@ -374,21 +389,29 @@ function App() {
                         minLength: { value: 4, messagege: "Minimo 4 dígitos" },
                       })}
                     />
-                    <label className="user-label">Código postal</label>
+                    <label className="user-label" htmlFor="cp">
+                      Código postal
+                    </label>
                   </div>
                 </>
               )}
             </div>
 
             <div className="input-group">
-              <input className="input" type="Subject" {...register("asunto")} />
-              <label className="user-label" htmlFor="Subject">
+              <input
+                className="input"
+                name="subject"
+                type="Subject"
+                {...register("asunto")}
+              />
+              <label className="user-label" htmlFor="subject">
                 Asunto
               </label>
             </div>
             <div className="input-group">
               <textarea
                 className="provincia"
+                name="mensaje"
                 onInput={handleInputChange}
                 {...register("mensaje", {
                   required: {
