@@ -4,6 +4,7 @@ import "./App.css";
 import { useEffect, useRef, useState } from "react";
 import arrowleft from "./assets/arows/left.svg";
 import arrowRight from "./assets/arows/right.svg";
+import { useForm } from "react-hook-form";
 
 function App() {
   // Header redirections
@@ -34,47 +35,48 @@ function App() {
     }
   };
 
-  //  ProductScroll
-  const product0 = useRef(null); //Paletas
-  const product1 = useRef(null); //Otros
-  const product2 = useRef(null); //Potes familiares
+  // Contact Form
 
-  const [scrollProductPosition, setScrollProductPosition] = useState(0);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+    setValue,
+    reset,
+  } = useForm();
 
-  const scrollRightIndex = () => {
-    if (scrollProductPosition < 2) {
-      setScrollProductPosition(scrollProductPosition + 1);
+  const onSubmit = handleSubmit((data) => {
+    alert("Enviando datos...");
+    reset();
+  });
+
+  const handleInputChange = (event) => {
+    autoExpand(event.target);
+  };
+
+  function autoExpand(textarea) {
+    textarea.style.height = "fit-content";
+    textarea.style.height = textarea.scrollHeight + "px";
+  }
+
+  // New scroll
+
+  const containerRef = useRef(null);
+
+  const scrollRight = () => {
+    const container = containerRef.current;
+    if (container) {
+      container.scrollLeft += 1100;
     }
   };
 
-  const scrollLeftIndex = () => {
-    if (scrollProductPosition > 0) {
-      setScrollProductPosition(scrollProductPosition - 1);
+  const scrollLeft = () => {
+    const container = containerRef.current;
+    if (container) {
+      container.scrollLeft -= 1100;
     }
   };
-
-  useEffect(() => {
-    switch (scrollProductPosition) {
-      case 0:
-        product0.current.scrollIntoView({
-          behavior: "smooth",
-          inline: "center",
-        });
-        break;
-      case 1:
-        product1.current.scrollIntoView({
-          behavior: "smooth",
-          inline: "center",
-        });
-        break;
-      case 2:
-        product2.current.scrollIntoView({
-          behavior: "smooth",
-          inline: "center",
-        });
-        break;
-    }
-  }, [scrollProductPosition]);
 
   return (
     <div
@@ -99,10 +101,10 @@ function App() {
         </main>
         <main className="products section" id="products">
           <h1 className="products__title title">Nuestros Productos</h1>
-          <div className="products__pages">
+          <div className="products__pages" ref={containerRef}>
             <div className="paletas">
               <h4 className="subtitle">Paletas</h4>
-              <ul className="paletas__list" ref={product0}>
+              <ul className="paletas__list">
                 <li> BANANA SPLIT 110 g</li>
                 <li> BANANA 110 g</li>
                 <li> CHOCO CHIPS 110 g</li>
@@ -129,7 +131,7 @@ function App() {
             </div>
             <div className="otros">
               <h4 className="subtitle"> Otros </h4>
-              <ul className="otros__list" ref={product1}>
+              <ul className="otros__list">
                 <li>Batido</li>
                 <li>Milkshake</li>
                 <li>Paleta Grande</li>
@@ -142,7 +144,7 @@ function App() {
             </div>
             <div className="potes">
               <h4 className="subtitle">Potes Familiares</h4>
-              <ul className="potes__list" ref={product2}>
+              <ul className="potes__list">
                 <li>Pote Banana Split 1L</li>
                 <li>Pote Choco Chips 1L</li>
                 <li>Pote Chocolate 1L</li>
@@ -170,12 +172,12 @@ function App() {
             </div>
           </div>
           <img
-            onClick={scrollLeftIndex}
+            onClick={scrollLeft}
             className="arrow-left arrow"
             src={arrowleft}
           ></img>
           <img
-            onClick={scrollRightIndex}
+            onClick={scrollRight}
             className="arrow-right arrow"
             src={arrowRight}
           ></img>
@@ -255,6 +257,161 @@ function App() {
               <li>Menta Granizada</li>
             </ul>
           </ul>
+        </main>
+        {/* Concact Form */}
+        <main className="contact-us section">
+          <h4 className="title">¿Queres distribuir nuestros helados?</h4>
+          <form className="contact-us__form" onSubmit={onSubmit}>
+            <div className="input-group">
+              <input
+                type="text"
+                name="name"
+                autoComplete="off"
+                className="input"
+                {...register("nombre", {
+                  required: { value: true, message: "Ingrese su nombre" },
+                  minLength: { value: 4, message: "Minímo 4 caracteres" },
+                  maxLength: { value: 20, message: "Máximo 20 caracteres" },
+                })}
+              />
+              <label className="user-label" htmlFor="nombre">
+                Nombre
+              </label>
+              {errors.nombre && (
+                <span className="form-errors">{errors.nombre.message}</span>
+              )}
+            </div>
+            <div className="input-group">
+              <input className="input" type="text" {...register("empresa")} />
+              <label className="user-label" htmlFor="empresa">
+                Empresa
+              </label>
+            </div>
+            <div className="input-group">
+              <input
+                className="input"
+                type="email"
+                {...register("email", {
+                  required: { value: true, message: "Ingrese su correo" },
+                  pattern: {
+                    value: /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]$/,
+                    message: "Correo no válido",
+                  },
+                })}
+              />
+              <label className="user-label" htmlFor="email">
+                Email
+              </label>
+              {errors.email && (
+                <span className="form-errors">{errors.email.message}</span>
+              )}
+            </div>
+            <div className="input-group">
+              <select
+                className="provincia"
+                {...register("provincia", {
+                  required: {
+                    value: true,
+                    message: "Porfavor, seleccione su provincia",
+                  },
+                })}
+              >
+                <option value="">Seleccione su provincia</option>
+                <option value="CABA">Ciudad Autónoma de Buenos Aires</option>
+                <option value="BA">Buenos Aires</option>
+                <option value="CAT">Catamarca</option>
+                <option value="CHA">Chaco</option>
+                <option value="CHU">Chubut</option>
+                <option value="COR">Córdoba</option>
+                <option value="CTE">Corrientes</option>
+                <option value="ER">Entre Ríos</option>
+                <option value="FOR">Formosa</option>
+                <option value="JUJ">Jujuy</option>
+                <option value="LP">La Pampa</option>
+                <option value="LR">La Rioja</option>
+                <option value="MZA">Mendoza</option>
+                <option value="MIS">Misiones</option>
+                <option value="NQN">Neuquén</option>
+                <option value="RN">Río Negro</option>
+                <option value="SL">San Luis</option>
+                <option value="SJ">San Juan</option>
+                <option value="SC">Santa Cruz</option>
+                <option value="SF">Santa Fe</option>
+                <option value="SE">Santiago del Estero</option>
+                <option value="TF">
+                  Tierra del Fuego-Antártida e Islas del Atlántico Sur
+                </option>
+                <option value="TUC">Tucumán</option>
+              </select>
+              <label className="provincia-label">Provincia</label>
+              {errors.provincia && (
+                <span className="form-errors">{errors.provincia.message}</span>
+              )}
+              {watch("provincia") && (
+                <>
+                  <div className="input-group direccion">
+                    <input
+                      className="input"
+                      type="text"
+                      {...register("direccion", {
+                        required: {
+                          value: true,
+                          message: "Porfavor, complete la dirección",
+                        },
+                      })}
+                    />
+                    <label className="user-label">Dirección</label>
+                  </div>
+                  <div className="input-group cp">
+                    <input
+                      className="input"
+                      type="text"
+                      {...register("cp", {
+                        required: {
+                          value: true,
+                          message: "Ingrese su código postal",
+                        },
+                        minLength: { value: 4, messagege: "Minimo 4 dígitos" },
+                      })}
+                    />
+                    <label className="user-label">Código postal</label>
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div className="input-group">
+              <input className="input" type="Subject" {...register("asunto")} />
+              <label className="user-label" htmlFor="Subject">
+                Asunto
+              </label>
+            </div>
+            <div className="input-group">
+              <textarea
+                className="provincia"
+                onInput={handleInputChange}
+                {...register("mensaje", {
+                  required: {
+                    value: true,
+                    message: "Por favor, ingrese su mensaje",
+                  },
+                  minLength: {
+                    value: 20,
+                    message: "Ingrese por lo menos 20 caracteres",
+                  },
+                })}
+              />
+              <label className="provincia-label" htmlFor="mensaje">
+                Mensaje
+              </label>
+              {errors.mensaje && (
+                <span className="form-errors">{errors.mensaje.message}</span>
+              )}
+            </div>
+            <button className="send-form" type="submit">
+              <span> Enviar</span>
+            </button>
+          </form>
         </main>
       </article>
       <Footer />
