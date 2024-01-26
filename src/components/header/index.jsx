@@ -6,7 +6,14 @@ import "./index.css";
 import SocialMedia from "../SocialMedia";
 import { useState } from "react";
 
-const Header = ({ aboutUs, products, flavors, isActive, classActive }) => {
+const Header = ({
+  aboutUs,
+  products,
+  flavors,
+  isActive,
+  workWithUs,
+  classActive,
+}) => {
   //Redirect Functions
   const instagramRedirect = () => {
     window.open("https://www.instagram.com/helado_silvia/");
@@ -66,6 +73,9 @@ const Header = ({ aboutUs, products, flavors, isActive, classActive }) => {
         </h4>
         <h4 onClick={flavors} className="main-header__button">
           Sabores
+        </h4>
+        <h4 onClick={workWithUs} className="main-header__button">
+          Redistribuí
         </h4>
       </div>
     </header>
