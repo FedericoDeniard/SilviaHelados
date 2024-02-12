@@ -358,8 +358,8 @@
 
 @media screen and (min-width: 768px) {
 
-    ::-webkit-scrollbar,
-    ::-webkit-scrollbar-track {
+    .products__pages::-webkit-scrollbar,
+    .products__pages::-webkit-scrollbar-track {
         position: absolute;
         top: -10000000px;
     }

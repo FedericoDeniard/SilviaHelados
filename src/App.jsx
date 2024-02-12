@@ -1,7 +1,7 @@
 import Header from "./components/header";
 import Footer from "./components/footer";
 import "./App.css";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import arrowleft from "./assets/arows/left.svg";
 import arrowRight from "./assets/arows/right.svg";
 import { useForm } from "react-hook-form";
@@ -17,6 +17,10 @@ function App() {
 
   const flavors = () => {
     window.location.href = "#flavors";
+  };
+
+  const workWithUs = () => {
+    window.location.href = "#workWithUs";
   };
 
   const [isActive, setIsActive] = useState(false);
@@ -91,6 +95,7 @@ function App() {
         aboutUs={aboutUs}
         products={products}
         flavors={flavors}
+        workWithUs={workWithUs}
         isActive={isActive}
         classActive={classActive}
       />
@@ -261,7 +266,7 @@ function App() {
           </ul>
         </main>
         {/* Concact Form */}
-        <main className="contact-us section">
+        <main className="contact-us section" id="workWithUs">
           <h4 className="title">¿Queres distribuir nuestros helados?</h4>
           <form className="contact-us__form" onSubmit={onSubmit}>
             <div className="input-group">
