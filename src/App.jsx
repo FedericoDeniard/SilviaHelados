@@ -1,7 +1,7 @@
 import Header from "./components/header";
 import Footer from "./components/footer";
 import "./App.css";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import arrowleft from "./assets/arows/left.svg";
 import arrowRight from "./assets/arows/right.svg";
 import { useForm } from "react-hook-form";
