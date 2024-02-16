@@ -1,6 +1,6 @@
 .about-us {
 
-    background: url("./assets/local.jpg") no-repeat center center;
+    background: url("./assets/background1.jpg") no-repeat center center;
 
 }
 
@@ -98,22 +98,6 @@
     align-items: center;
 }
 
-/* .flavors__list {
-    font-size: clamp(25px, 5vw, 40px);
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-    list-style-type: none;
-} */
-
-/* .flavors__list ul {
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 auto;
-    flex-wrap: wrap;
-    max-height: 600px;
-} */
-
 .flavors__list li:nth-child(odd),
 .paletas__list li:nth-child(odd),
 .otros__list li:nth-child(odd),
@@ -149,7 +133,8 @@
 
 /* Formulario de contacto */
 .contact-us {
-    background-color: #999;
+    background: url("./assets/background2.jpg") no-repeat center center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -302,29 +287,34 @@
     margin-top: 20px;
 }
 
+
 @media screen and (max-width: 768px) {
 
     .products__pages {
         gap: 10px;
+        padding: 10px;
+        align-items: center;
     }
+
 
     .paletas__list,
     .flavors__list,
     .otros__list,
     .potes__list {
-        height: fit-content;
-        max-height: 90vh;
+        max-height: 70vh;
         flex-wrap: nowrap;
         overflow-y: scroll;
         width: fit-content;
         padding: 0px 5px;
         margin-bottom: 5px;
-        margin-left: 40px;
+        margin-left: 3.5vw;
         margin: auto;
+        scroll-snap-type: y mandatory;
+        padding: 5px 0px;
     }
 
-    .flavors__list {
-        margin: auto;
+    .potes__list {
+        margin-left: 8vw;
     }
 
     .arrow {
@@ -354,6 +344,7 @@
     .section:first-child {
         padding: 70px 0;
     }
+
 }
 
 @media screen and (min-width: 768px) {

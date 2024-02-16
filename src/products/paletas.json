@@ -1,0 +1,397 @@
+{
+    "paletas": {
+        "frutillaAgua": {
+            "name": "Frutilla al agua",
+            "price": "",
+            "size": "110g"
+        },
+        "naranja": {
+            "name": "Naranja",
+            "price": "",
+            "size": "110g"
+        },
+        "naranjaFrutilla": {
+            "name": "Naranja-Frutilla",
+            "price": "",
+            "size": "110g"
+        },
+        "kiwiNaranja": {
+            "name": "Kiwi-naranja",
+            "price": "",
+            "size": "110g"
+        },
+        "kiwiFrutilla": {
+            "name": "Kiwi-Frutilla",
+            "price": "",
+            "size": "110g"
+        },
+        "anana": {
+            "name": "Ananá",
+            "price": "",
+            "size": "110g"
+        },
+        "limon": {
+            "name": "Limón",
+            "price": "",
+            "size": "110g"
+        },
+        "sandia": {
+            "name": "Sandia",
+            "price": "",
+            "size": "110g"
+        },
+        "limonFrutilla": {
+            "name": "Limón-Frutilla",
+            "price": "",
+            "size": "110g"
+        },
+        "melon": {
+            "name": "Melón",
+            "price": "",
+            "size": "110g"
+        },
+        "naranjaVainilla": {
+            "name": "Naranja-vainilla",
+            "price": "",
+            "size": "110g"
+        },
+        "fresa": {
+            "name": "Fresa",
+            "price": "",
+            "size": "110g"
+        },
+        "chocolate": {
+            "name": "Chocolate",
+            "price": "",
+            "size": "110g"
+        },
+        "dulceLeche": {
+            "name": "Dulce de leche",
+            "price": "",
+            "size": "110g"
+        },
+        "mantecadoOreo": {
+            "name": "Mantecado Oreo",
+            "price": "",
+            "size": "110g"
+        },
+        "banana": {
+            "name": "Banana",
+            "price": "",
+            "size": "110g"
+        },
+        "bananaSplit": {
+            "name": "Banana Split",
+            "price": "",
+            "size": "110g"
+        },
+        "cremaDelCielo": {
+            "name": "Crema del cielo",
+            "price": "",
+            "size": "110g"
+        },
+        "duoFresaMantecado": {
+            "name": "Duo (fresa-mantecado)",
+            "price": "",
+            "size": "110g"
+        },
+        "mentaGranizada": {
+            "name": "Menta Granizada",
+            "price": "",
+            "size": "110g"
+        }
+    },
+    "sabores": {
+        "chocolate": {
+            "name": "Chocolate",
+            "description": "Helado cremoso a base de leche y cacao",
+            "price": ""
+        },
+        "chocolateGranizado": {
+            "name": "Chocolate Granizado",
+            "description": "Helado cremoso a base de leche, cacao y cobertura de chocolate",
+            "price": ""
+        },
+        "chocolateFerreroRocher": {
+            "name": "Chocolate Ferrero Rocher",
+            "description": "Helado de crema a base de leche, cacao y bombón Ferrero Rocher",
+            "price": ""
+        },
+        "chocolateShot": {
+            "name": "Chocolate Shot",
+            "description": "Helado Cremoso a base de leche, cacao y chocolate shot",
+            "price": ""
+        },
+        "fresaALaCrema": {
+            "name": "Fresa a la crema",
+            "description": "Helado cremoso a base de leche y pulpa de frutilla",
+            "price": ""
+        },
+        "mantecadoOreo": {
+            "name": "Mantecado Oreo",
+            "description": "Helado super cremoso a base de leche, vainilla y galletitas oreo",
+            "price": ""
+        },
+        "mantecadoDulceDeLeche": {
+            "name": "Mantecado Dulce de leche",
+            "description": "Helado super cremoso a base de leche, vainilla y salsa de dulce de leche",
+            "price": ""
+        },
+        "tortaSuiza": {
+            "name": "Torta Suiza",
+            "description": "Helado super cremoso a base de leche con galletitas cubiertas de chocolate",
+            "price": ""
+        },
+        "tramontana": {
+            "name": "Tramontana",
+            "description": "Helado cremoso a base de vainilla, salsa de dulce de leche y bolitas crocantes de chocolate",
+            "price": ""
+        },
+        "cremaReal": {
+            "name": "Crema Real",
+            "description": "Helado venezolano, crema refrescante sabor a vainilla y naranja",
+            "price": ""
+        },
+        "lemonPie": {
+            "name": "Lemon Pie",
+            "description": "Helado de limón a la crema",
+            "price": ""
+        },
+        "batiBati": {
+            "name": "Bati Bati",
+            "description": "Helado venezolano, crema refrescante con sabor a uva",
+            "price": ""
+        },
+        "pistacho": {
+            "name": "Pistacho",
+            "description": "Helado cremoso sabor a pistacho",
+            "price": ""
+        },
+        "granizado": {
+            "name": "Granizado",
+            "description": "Helado super cremoso a base de leche con granizado de chocolate",
+            "price": ""
+        },
+        "frutosRojos": {
+            "name": "Frutos rojos",
+            "description": "Helado a la crema con base de leche y mermelada artesanal de frutos rojos",
+            "price": ""
+        },
+        "banana": {
+            "name": "Banana",
+            "description": "Helado cremoso sabor a banana",
+            "price": ""
+        },
+        "bananaSplit": {
+            "name": "Banana Split",
+            "description": "Helado a la crema de banana con salsa de dulce de leche",
+            "price": ""
+        },
+        "cremaDelCielo": {
+            "name": "Crema del cielo",
+            "description": "Helado a la crema con un suave sabor vainilla",
+            "price": ""
+        },
+        "dulceDeLeche": {
+            "name": "Dulce de leche",
+            "description": "Helado super cremoso a base de leche y Dulce de leche",
+            "price": ""
+        },
+        "dulceDeLecheGranizado": {
+            "name": "Dulce de leche granizado",
+            "description": "Helado super cremoso a base de leche y Dulce de leche con granizado de chocolate",
+            "price": ""
+        },
+        "superDdl": {
+            "name": "Super Ddl",
+            "description": "Helado super cremoso a base de leche con extra salsa de dulce de leche",
+            "price": ""
+        },
+        "maracuya": {
+            "name": "Maracuyá",
+            "description": "Helado super refrescante tipo mousse con pulpa de maracuyá",
+            "price": ""
+        },
+        "anana": {
+            "name": "Ananá",
+            "description": "Helado frutal de agua y ananá",
+            "price": ""
+        },
+        "mousseDeMelon": {
+            "name": "Mousse de Melón",
+            "description": "Helado super refrescante tipo mousse de melón a la crema",
+            "price": ""
+        },
+        "melon": {
+            "name": "Melón",
+            "description": "Helado frutal de agua y melón",
+            "price": ""
+        },
+        "limon": {
+            "name": "Limón",
+            "description": "Helado super refrescante de limón al agua",
+            "price": ""
+        },
+        "naranja": {
+            "name": "Naranja",
+            "description": "Helado super refrescante de naranja al agua",
+            "price": ""
+        },
+        "mentaGranizada": {
+            "name": "Menta granizada",
+            "description": "Helado cremoso a base de leche con sabor a menta y granizado de chocolate",
+            "price": ""
+        }
+    },
+    "otros": {
+        "batido": {
+            "name": "Batido",
+            "price": ""
+        },
+        "milkshake": {
+            "name": "Milkshake",
+            "price": ""
+        },
+        "paletaGrande": {
+            "name": "Paleta Grande",
+            "price": ""
+        },
+        "paletaPequeña": {
+            "name": "Paleta Pequeña",
+            "price": ""
+        },
+        "conos": {
+            "name": "Conos 1 Bocha / 2 Bochas / 3 Bochas",
+            "price": ""
+        },
+        "capelina": {
+            "name": "Capelina",
+            "price": ""
+        },
+        "tinitas": {
+            "name": "Tinitas",
+            "price": ""
+        },
+        "vasitos": {
+            "name": "Vasitos",
+            "price": ""
+        }
+    },
+    "potes": {
+        "bananaSplit": {
+            "name": "Pote Banana Split",
+            "price": "",
+            "size": "1L"
+        },
+        "chocoChips": {
+            "name": "Pote Choco Chips",
+            "price": "",
+            "size": "1L"
+        },
+        "chocolate": {
+            "name": "Pote Choco Chips",
+            "price": "",
+            "size": "1L"
+        },
+        "cremaDelCielo": {
+            "name": "Pote Crema del Cielo",
+            "price": "",
+            "size": "1L"
+        },
+        "ddl": {
+            "name": "Dulce de leche",
+            "price": "",
+            "size": "1L"
+        },
+        "ddlGranizado": {
+            "name": "Dulce de leche granizado",
+            "price": "",
+            "size": "1L"
+        },
+        "duoFresa/ddl": {
+            "name": "Duo Fresa / DDL",
+            "price": "",
+            "size": "1L"
+        },
+        "duoFresa/Choco": {
+            "name": "Duo Fresa / Chocolate",
+            "price": "",
+            "size": "1L"
+        },
+        "duoMant/ddl": {
+            "name": "Dúo Mantecado / Dulce de leche",
+            "price": "",
+            "size": "1L"
+        },
+        "duoMant/choco": {
+            "name": "Dúo Mantecado / Chocolate",
+            "price": "",
+            "size": "1L"
+        },
+        "duoMant/Fresa": {
+            "name": "Dúo Mantecado / Fresa",
+            "price": "",
+            "size": "1L"
+        },
+        "fresa": {
+            "name": "Fresa",
+            "price": "",
+            "size": "1L"
+        },
+        "fresaTovar": {
+            "name": "Fresa Tovar",
+            "price": "",
+            "size": "1L"
+        },
+        "frutosRojos": {
+            "name": "Frutos Rojos",
+            "price": "",
+            "size": "1L"
+        },
+        "mantecado": {
+            "name": "Mantecado",
+            "price": "",
+            "size": "1L"
+        },
+        "mantecadoOreo": {
+            "name": "Mantecado Oreo",
+            "price": "",
+            "size": "1L"
+        },
+        "Menta Granizada": {
+            "name": "Menta Granizada",
+            "price": "",
+            "size": "1L"
+        },
+        "pistacho": {
+            "name": "Pistacho",
+            "price": "",
+            "size": "1L"
+        },
+        "superDdl": {
+            "name": "Super Dulce de Leche",
+            "price": "",
+            "size": "1L"
+        },
+        "tramontana": {
+            "name": "Tramontana",
+            "price": "",
+            "size": "1L"
+        },
+        "naranjaVainilla": {
+            "name": "Naranja Vainilla",
+            "price": "",
+            "size": "1L"
+        },
+        "napolitano": {
+            "name": "Napolitano",
+            "price": "",
+            "size": "1L"
+        },
+        "napolitano3": {
+            "name": "Napolitano",
+            "price": "",
+            "size": "3L"
+        }
+    }
+}

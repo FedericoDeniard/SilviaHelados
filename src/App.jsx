@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import arrowleft from "./assets/arows/left.svg";
 import arrowRight from "./assets/arows/right.svg";
 import { useForm } from "react-hook-form";
+import productos from "./products/paletas.json";
 
 function App() {
   // Header redirections
@@ -82,6 +83,24 @@ function App() {
     }
   };
 
+  const writePaletas = Object.keys(productos.paletas).map((key) => (
+    <li key={key}>{productos.paletas[key].name}</li>
+  ));
+
+  const writeSabores = Object.keys(productos.sabores).map((key) => (
+    <li key={key}>{productos.sabores[key].name}</li>
+  ));
+
+  const writeOtros = Object.keys(productos.otros).map((key) => (
+    <li key={key}>{productos.otros[key].name}</li>
+  ));
+
+  const writePotes = Object.keys(productos.potes).map((key) => (
+    <li key={key}>
+      {productos.potes[key].name} {productos.potes[key].size}
+    </li>
+  ));
+
   return (
     <div
       onClick={() => {
@@ -109,71 +128,15 @@ function App() {
           <div className="products__pages" ref={containerRef}>
             <div className="paletas">
               <h4 className="subtitle">Paletas</h4>
-              <ul className="paletas__list">
-                <li> BANANA SPLIT 110 g</li>
-                <li> BANANA 110 g</li>
-                <li> CHOCO CHIPS 110 g</li>
-                <li> CHOCOLATE 110 g</li>
-                <li> CREMA DEL CIELO 110 g</li>
-                <li> DDL GRANIZADO 110 g</li>
-                <li> DULCE DE LECHE 110 g</li>
-                <li> DUO CHOCO / DDL 110 g</li>
-                <li> DUO CHOCO / FRESA 110 g</li>
-                <li> DUO MANTE / DDL 110g</li>
-                <li> DUO MANTE/CHOCO 110 g</li>
-                <li> DUO MANT/FRESA 110 g</li>
-                <li> FRESA 110 g</li>
-                <li> FRESA TOVAR 110 g</li>
-                <li> FRUTOS ROJOS 110 g</li>
-                <li> MANTECADO 110 g</li>
-                <li> MANTECADO OREO 110 g</li>
-                <li> MENTA GRANIZADA 110 g</li>
-                <li> PISTACHO 110 g</li>
-                <li> SUPER DULCE DE LECHE 110 g</li>
-                <li> TRAMONTANA 110 g</li>
-                <li> NARANJA / VAINILLA 110 g</li>
-              </ul>
+              <ul className="paletas__list">{writePaletas}</ul>
             </div>
             <div className="otros">
               <h4 className="subtitle"> Otros </h4>
-              <ul className="otros__list">
-                <li>Batido</li>
-                <li>Milkshake</li>
-                <li>Paleta Grande</li>
-                <li>Paleta Pequeña</li>
-                <li>Conos 1 Bocha / 2 Bochas / 3 Bochas</li>
-                <li>Capelina</li>
-                <li>Tinitas</li>
-                <li>Vasitos</li>
-              </ul>
+              <ul className="otros__list">{writeOtros}</ul>
             </div>
             <div className="potes">
               <h4 className="subtitle">Potes Familiares</h4>
-              <ul className="potes__list">
-                <li>Pote Banana Split 1L</li>
-                <li>Pote Choco Chips 1L</li>
-                <li>Pote Chocolate 1L</li>
-                <li>Pote Crema del Cielo 1L</li>
-                <li>Pote DDL Granizado 1L</li>
-                <li>Pote Dulce de Leche 1L</li>
-                <li>Pote Duo Fresa / DDL 1L</li>
-                <li>Pote DuoFresa / Choco 1L</li>
-                <li>Pote Duo Mant / DDL 1L</li>
-                <li>Pote Duo Mant/Choco 1L</li>
-                <li>Pote Duo Mant/Fresa 1L</li>
-                <li>Pote Fresa 1L</li>
-                <li>Pote Fresa Tovar 1L</li>
-                <li>Pote Frutos Rojos 1L</li>
-                <li>Pote Mantecado 1L</li>
-                <li>Pote Mantecado Oreo 1L</li>
-                <li>Pote Menta Granizada 1L</li>
-                <li>Pote Pistacho 1L</li>
-                <li>Pote Super Dulce de Leche 1L</li>
-                <li>Pote Tramontana 1L</li>
-                <li>Pote Naranja / Vainilla 1L</li>
-                <li>Pote Napolitano 1L</li>
-                <li>Pote Napolitano 3L</li>
-              </ul>
+              <ul className="potes__list">{writePotes}</ul>
             </div>
           </div>
           <img
@@ -191,79 +154,7 @@ function App() {
         </main>
         <main className="flavors section" id="flavors">
           <h1 className="flavors__title title">Sabores de helado</h1>
-          <ul className="flavors__list">
-            <ul>
-              <li>
-                <strong className="flavors__strong">Helado para servir</strong>
-              </li>
-              <li>1/4 Kg Helado Artesanal</li>
-              <li>1/2 Kg Helado Artesanal</li>
-              <li>1 Kg Helado Artesanal</li>
-            </ul>
-            <ul>
-              <li>
-                <strong className="flavors__strong">Crema</strong>
-              </li>
-              <li>Banana</li>
-              <li>Banana Split</li>
-              <li>Crema del Cielo</li>
-              <li>Fresa</li>
-              <li>Fresa Tovar</li>
-              <li>Naranja-Vainilla</li>
-              <li>Pistacho</li>
-              <li>Toddy</li>
-            </ul>
-
-            <ul>
-              <li>
-                <strong className="flavors__strong">Dulce de leche</strong>
-              </li>
-              <li>Dulce de Leche Clásico</li>
-              <li>Dulce de Leche Granizado</li>
-              <li>Super Dulce de Leche</li>
-              <li>Dulce de Leche con Maní</li>
-              <li>Dulce de Leche con Oreo</li>
-              <li>Chocotorta</li>
-            </ul>
-
-            <ul>
-              <li>
-                <strong className="flavors__strong">Chocolate</strong>
-              </li>
-              <li>Chocolate Clásico</li>
-              <li>Chocolate Granizado</li>
-              <li>Chocolate Shot</li>
-              <li>Chocolate Almendra</li>
-              <li>Chocolate Tentación</li>
-              <li>Chocolate Blanco</li>
-              <li>Ferrero Rocher</li>
-              <li>Chocolate Bariloche</li>
-            </ul>
-
-            <ul>
-              <li>
-                <strong className="flavors__strong">Crema</strong>
-              </li>
-              <li>Mantecado</li>
-              <li>Mantecado Clásico</li>
-              <li>Mantecado Granizado</li>
-              <li>Mantecado Oreo</li>
-              <li>Mantecado Dulce de Leche</li>
-              <li>Tramontana</li>
-              <li>Torta Suiza</li>
-            </ul>
-
-            <ul>
-              <li>
-                <strong className="flavors__strong">Especiales</strong>
-              </li>
-              <li>Coco</li>
-              <li>Cheesecake</li>
-              <li>Ron Pasas</li>
-              <li>Frutos Rojos</li>
-              <li>Menta Granizada</li>
-            </ul>
-          </ul>
+          <ul className="flavors__list">{writeSabores}</ul>
         </main>
         {/* Concact Form */}
         <main className="contact-us section" id="workWithUs">
