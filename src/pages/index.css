@@ -1,0 +1,357 @@
+.about-us {
+
+    background: url("./assets/background1.jpg") no-repeat center center;
+
+}
+
+.title {
+    font-size: clamp(35px, 10vw, 60px);
+    color: #ff679a;
+    text-shadow: 2px 2px #fff;
+}
+
+.subtitle {
+    font-size: clamp(25px, 4vw, 50px);
+    color: #ab4696;
+    text-shadow: 2px 2px #fff;
+    padding-top: 5px;
+}
+
+.products {
+    background: url("./assets/about_us-transformed.jpeg") no-repeat center center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.products__pages {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100%;
+    scroll-snap-type: x mandatory;
+    position: relative;
+}
+
+.arrow {
+    position: absolute;
+    height: 100px;
+    top: 45%;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.arrow-left {
+    left: 0;
+}
+
+.arrow-right {
+    right: 0;
+}
+
+
+.paletas,
+.otros,
+.potes {
+    height: 100%;
+    flex: 0 0 auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* Si Activo esto se rompe el scroll */
+    margin: auto;
+    scroll-snap-align: start;
+}
+
+.paletas__list,
+.otros__list,
+.flavors__list,
+.potes__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 620px;
+    font-size: clamp(15px, 5vw, 30px);
+    padding: 0px 5px;
+
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.flavors__list {
+    margin: auto;
+}
+
+
+.flavors {
+    background: url("./assets/sabores.jpg") no-repeat center center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flavors__list li:nth-child(odd),
+.paletas__list li:nth-child(odd),
+.otros__list li:nth-child(odd),
+.potes__list li:nth-child(odd) {
+    color: #fff;
+    text-shadow: 1.2px 1.2px #ab4696;
+}
+
+.flavors__list li:nth-child(even),
+.paletas__list li:nth-child(even),
+.otros__list li:nth-child(even),
+.potes__list li:nth-child(even) {
+    color: #ff679a;
+    text-shadow: 1.2px 1.2px #ab4696;
+}
+
+.flavors__strong {
+    color: #fdd928;
+    text-shadow: 1px 1px #000;
+}
+
+.section {
+    min-height: 100vh;
+    background-size: cover;
+    padding: 0px 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.flavors__list ul {
+    margin-bottom: 20px;
+}
+
+/* Formulario de contacto */
+.contact-us {
+    background: url("./assets/background2.jpg") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    padding: 0px 10px 10px 10px;
+}
+
+.contact-us__form {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    width: fit-content;
+    gap: 20px;
+    align-items: center;
+    margin: auto;
+
+
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.contact-us__form div {
+    gap: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    font-size: clamp(20px, 5vw, 30px);
+    color: #ab4696
+}
+
+.form-errors {
+    color: #FF6961;
+    text-shadow: .5px .5px #ab4696;
+    font-size: 20px;
+}
+
+.provincia {
+    border: solid 1.5px #ff679a;
+    border-radius: 1rem;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #f5f5f5;
+    text-shadow: 1px 1px #ff679a;
+    position: relative;
+    resize: none;
+    width: 100%;
+}
+
+
+.provincia option {
+    color: #000;
+    border: solid 1.5px #ff679a;
+    border-radius: 1rem;
+}
+
+.provincia-label {
+    position: absolute;
+    background-color: #adadad;
+    left: 15px;
+    transform: translateY(-50%) scale(0.8);
+}
+
+.input-group {
+    position: relative;
+}
+
+.input {
+    border: solid 1.5px #ff679a;
+    border-radius: 1rem;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #f5f5f5;
+    text-shadow: 1px 1px #ff679a;
+    width: 100%;
+}
+
+.user-label {
+    position: absolute;
+    left: 15px;
+    color: #e8e8e8;
+    pointer-events: none;
+    transform: translateY(-50%) scale(0.8);
+    background-color: #adadad;
+    color: #ab4696;
+}
+
+
+/* Button */
+.send-form {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+}
+
+.send-form::before,
+.send-form::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.send-form::before {
+    left: -10px;
+    background: #ff679a;
+}
+
+.send-form::after {
+    right: -10px;
+    background: #ab4696;
+}
+
+.send-form:hover::before,
+.send-form:hover::after {
+    width: 58%;
+}
+
+.send-form:hover span {
+    color: #fff;
+    transition: 0.3s;
+}
+
+.send-form span {
+    color: #ff679a;
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+}
+
+.direccion,
+.cp {
+    margin-top: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .products__pages {
+        gap: 10px;
+        padding: 10px;
+        align-items: center;
+    }
+
+
+    .paletas__list,
+    .flavors__list,
+    .otros__list,
+    .potes__list {
+        max-height: 70vh;
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+        width: fit-content;
+        padding: 0px 5px;
+        margin-bottom: 5px;
+        margin-left: 3.5vw;
+        margin: auto;
+        scroll-snap-type: y mandatory;
+        padding: 5px 0px;
+    }
+
+    .potes__list {
+        margin-left: 8vw;
+    }
+
+    .arrow {
+        height: 55px;
+        display: none;
+    }
+
+    .otros,
+    .paletas,
+    .potes {
+        width: 80vw;
+    }
+
+    .paletas__list,
+    .otros__list,
+    .potes__list {
+        width: fit-content;
+    }
+
+    .potes {
+        margin-right: 50px;
+    }
+
+}
+
+@media screen and (max-width: 860px) {
+    .section:first-child {
+        padding: 70px 0;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    .products__pages::-webkit-scrollbar,
+    .products__pages::-webkit-scrollbar-track {
+        position: absolute;
+        top: -10000000px;
+    }
+}
