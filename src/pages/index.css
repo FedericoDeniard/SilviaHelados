@@ -1,6 +1,6 @@
 .about-us {
 
-    background: url("./assets/background1.jpg") no-repeat center center;
+    background: url("../assets/background1.jpg") no-repeat center center;
 
 }
 
@@ -18,7 +18,7 @@
 }
 
 .products {
-    background: url("./assets/about_us-transformed.jpeg") no-repeat center center;
+    background: url("../assets/about_us-transformed.jpeg") no-repeat center center;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -92,7 +92,7 @@
 
 
 .flavors {
-    background: url("./assets/sabores.jpg") no-repeat center center;
+    background: url("../assets/sabores.jpg") no-repeat center center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,7 +133,7 @@
 
 /* Formulario de contacto */
 .contact-us {
-    background: url("./assets/background2.jpg") no-repeat center center;
+    background: url("../assets/background2.jpg") no-repeat center center;
     background-size: cover;
     display: flex;
     flex-direction: column;
