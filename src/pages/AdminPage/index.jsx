@@ -12,10 +12,11 @@ const AdminPage = () => {
   const [titulo, setTitulo] = useState("");
   const [precio, setPrecio] = useState("");
   const [tamaño, setTamaño] = useState("");
+  const [descuento, setDescuento] = useState("");
 
   useEffect(() => {
-    console.log(productos);
     localStorage.setItem("productos", JSON.stringify(productos));
+    console.log(productos);
   }, [productos]);
 
   const addProduct = () => {
@@ -24,11 +25,13 @@ const AdminPage = () => {
       titulo: titulo,
       precio: precio,
       tamaño: tamaño,
+      descuento: descuento,
     };
     setProductos({ ...productos, [productId]: newProduct });
     setTitulo("");
     setPrecio("");
     setTamaño("");
+    setDescuento("");
   };
 
   const updateProduct = (productId, updatedProduct) => {
@@ -79,6 +82,13 @@ const AdminPage = () => {
             placeholder="Tamaño"
             value={tamaño}
             onChange={(e) => setTamaño(e.target.value)}
+          />
+          <input
+            type="text"
+            className="paletas-container__input"
+            placeholder="Descuento"
+            value={descuento}
+            onChange={(e) => setDescuento(e.target.value)}
           />
           <input
             className="paletas-container__add-button"

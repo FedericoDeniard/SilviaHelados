@@ -3,7 +3,7 @@ import remove from "../../assets/adminPage/remove.svg";
 import "./product.css";
 
 const Product = ({ producto, productId, updateProduct, handleRemove }) => {
-  const { titulo, precio, tamaño } = producto;
+  const { titulo, precio, tamaño, descuento } = producto;
 
   const handleInputChange = (field, value) => {
     const updatedProduct = {
@@ -12,6 +12,8 @@ const Product = ({ producto, productId, updateProduct, handleRemove }) => {
     };
     updateProduct(productId, updatedProduct);
   };
+
+  let total = precio - (precio * descuento) / 100;
 
   return (
     <li className="product">
@@ -25,7 +27,7 @@ const Product = ({ producto, productId, updateProduct, handleRemove }) => {
         <input
           className="product-price"
           type="text"
-          value={precio}
+          value={`$${precio}`}
           onChange={(e) => handleInputChange("precio", e.target.value)}
         />
         <input
@@ -35,6 +37,19 @@ const Product = ({ producto, productId, updateProduct, handleRemove }) => {
           onChange={(e) => handleInputChange("tamaño", e.target.value)}
         />
       </div>
+      <div className="product-descuento">
+        <p>Descuento: </p>
+        <div className="product-descuento-concatenado">
+          <input
+            className="product-size"
+            type="text"
+            value={descuento}
+            onChange={(e) => handleInputChange("descuento", e.target.value)}
+          />
+          <p>%</p>
+        </div>
+      </div>
+      <p>Total: ${total}</p>
       <img
         src={remove}
         className="remove-icon"

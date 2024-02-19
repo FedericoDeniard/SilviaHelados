@@ -26,6 +26,7 @@
     width: 40px;
 }
 
+
 .product input {
     background-color: transparent;
     color: #fff;
@@ -39,6 +40,17 @@
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+}
+
+.product-descuento {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 22px;
+}
+
+.product-descuento-concatenado {
+    display: flex;
 }
 
 .remove-icon {
