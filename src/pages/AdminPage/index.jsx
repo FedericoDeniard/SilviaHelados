@@ -6,13 +6,14 @@ import "./index.css";
 
 const AdminPage = () => {
   const storedProductos = localStorage.getItem("productos");
-  const initialProductos = storedProductos ? JSON.parse(storedProductos) : {};
+  const initialProductos = storedProductos ? JSON.parse(storedProductos) : [];
 
   const [productos, setProductos] = useState(initialProductos);
   const [titulo, setTitulo] = useState("");
   const [precio, setPrecio] = useState("");
   const [tamaño, setTamaño] = useState("");
   const [descuento, setDescuento] = useState("");
+  const [categoria, setCategoria] = useState("");
 
   useEffect(() => {
     localStorage.setItem("productos", JSON.stringify(productos));
@@ -20,30 +21,33 @@ const AdminPage = () => {
   }, [productos]);
 
   const addProduct = () => {
-    const productId = Date.now().toString();
     const newProduct = {
+      productId: Date.now().toString(),
       titulo: titulo,
       precio: precio,
       tamaño: tamaño,
       descuento: descuento,
+      categoria: categoria,
     };
-    setProductos({ ...productos, [productId]: newProduct });
+    setProductos([...productos, newProduct]);
     setTitulo("");
     setPrecio("");
     setTamaño("");
     setDescuento("");
+    setCategoria("");
   };
 
   const updateProduct = (productId, updatedProduct) => {
-    setProductos({
-      ...productos,
-      [productId]: updatedProduct,
-    });
+    const updatedProductos = productos.map((product) =>
+      product === productId ? updatedProduct : product
+    );
+    setProductos(updatedProductos);
   };
 
   const handleRemove = (productId) => {
-    const updatedProductos = { ...productos };
-    delete updatedProductos[productId];
+    const updatedProductos = productos.filter(
+      (product) => product !== productId
+    );
     setProductos(updatedProductos);
   };
 
@@ -51,11 +55,11 @@ const AdminPage = () => {
     <div className="adminpage">
       <h4>Paletas</h4>
       <ul className="paletas-container">
-        {Object.keys(productos).map((productId) => (
+        {productos.map((product, index) => (
           <Product
-            key={productId}
-            productId={productId}
-            producto={productos[productId]}
+            key={index}
+            productId={index}
+            producto={product}
             updateProduct={updateProduct}
             handleRemove={handleRemove}
           />
@@ -90,6 +94,12 @@ const AdminPage = () => {
             value={descuento}
             onChange={(e) => setDescuento(e.target.value)}
           />
+          <select>
+            <option value="paletas">Paleta</option>
+            <option value="otros">Otro</option>
+            <option value="potes">Pote Familiar</option>
+            <option value="sabores">Sabor</option>
+          </select>
           <input
             className="paletas-container__add-button"
             type="submit"

@@ -3,7 +3,7 @@ import remove from "../../assets/adminPage/remove.svg";
 import "./product.css";
 
 const Product = ({ producto, productId, updateProduct, handleRemove }) => {
-  const { titulo, precio, tamaño, descuento } = producto;
+  const { titulo, precio, tamaño, descuento, categoria } = producto;
 
   const handleInputChange = (field, value) => {
     const updatedProduct = {
@@ -49,6 +49,15 @@ const Product = ({ producto, productId, updateProduct, handleRemove }) => {
           <p>%</p>
         </div>
       </div>
+      <select
+        value={categoria}
+        onChange={(e) => handleInputChange("categoria", e.target.value)}
+      >
+        <option value="paletas">Paleta</option>
+        <option value="otros">Otro</option>
+        <option value="potes">Pote Familiar</option>
+        <option value="sabores">Sabor</option>
+      </select>
       <p>Total: ${total}</p>
       <img
         src={remove}
