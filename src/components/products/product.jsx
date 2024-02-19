@@ -3,14 +3,14 @@ import remove from "../../assets/adminPage/remove.svg";
 import "./product.css";
 
 const Product = ({ producto, productId, updateProduct, handleRemove }) => {
-  const { titulo, precio, tamaño, descuento, categoria } = producto;
+  const { titulo, precio, tamaño, descuento, categoria, stock } = producto;
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (key, value) => {
     const updatedProduct = {
       ...producto,
-      [field]: value,
+      [key]: value,
     };
-    updateProduct(productId, updatedProduct);
+    updateProduct(updatedProduct);
   };
 
   let total = precio - (precio * descuento) / 100;
@@ -27,7 +27,7 @@ const Product = ({ producto, productId, updateProduct, handleRemove }) => {
         <input
           className="product-price"
           type="text"
-          value={`$${precio}`}
+          value={precio}
           onChange={(e) => handleInputChange("precio", e.target.value)}
         />
         <input
@@ -49,6 +49,12 @@ const Product = ({ producto, productId, updateProduct, handleRemove }) => {
           <p>%</p>
         </div>
       </div>
+      <input
+        type="text"
+        className="stock"
+        value={stock}
+        onChange={(e) => handleInputChange("stock", e.target.value)}
+      ></input>
       <select
         value={categoria}
         onChange={(e) => handleInputChange("categoria", e.target.value)}
@@ -63,7 +69,7 @@ const Product = ({ producto, productId, updateProduct, handleRemove }) => {
         src={remove}
         className="remove-icon"
         alt="Remove"
-        onClick={(e) => handleRemove(productId)}
+        onClick={() => handleRemove(productId)}
       />
     </li>
   );

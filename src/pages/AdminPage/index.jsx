@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Product from "../../components/products/product";
 import remove from "../../assets/adminPage/remove.svg";
 import add from "../../assets/adminPage/add.svg";
@@ -13,7 +13,8 @@ const AdminPage = () => {
   const [precio, setPrecio] = useState("");
   const [tamaño, setTamaño] = useState("");
   const [descuento, setDescuento] = useState("");
-  const [categoria, setCategoria] = useState("");
+  const [stock, setStock] = useState("");
+  const categoriaRef = useRef("paletas");
 
   useEffect(() => {
     localStorage.setItem("productos", JSON.stringify(productos));
@@ -27,26 +28,28 @@ const AdminPage = () => {
       precio: precio,
       tamaño: tamaño,
       descuento: descuento,
-      categoria: categoria,
+      categoria: categoriaRef.current.value,
+      stock: stock,
     };
     setProductos([...productos, newProduct]);
     setTitulo("");
     setPrecio("");
     setTamaño("");
     setDescuento("");
-    setCategoria("");
+    categoriaRef.current.value = "paletas";
+    setStock("");
   };
 
-  const updateProduct = (productId, updatedProduct) => {
+  const updateProduct = (updatedProduct) => {
     const updatedProductos = productos.map((product) =>
-      product === productId ? updatedProduct : product
+      product.productId === updatedProduct.productId ? updatedProduct : product
     );
     setProductos(updatedProductos);
   };
 
   const handleRemove = (productId) => {
     const updatedProductos = productos.filter(
-      (product) => product !== productId
+      (product) => product.productId !== productId
     );
     setProductos(updatedProductos);
   };
@@ -55,10 +58,10 @@ const AdminPage = () => {
     <div className="adminpage">
       <h4>Paletas</h4>
       <ul className="paletas-container">
-        {productos.map((product, index) => (
+        {productos.map((product) => (
           <Product
-            key={index}
-            productId={index}
+            key={product.productId}
+            productId={product.productId}
             producto={product}
             updateProduct={updateProduct}
             handleRemove={handleRemove}
@@ -94,7 +97,14 @@ const AdminPage = () => {
             value={descuento}
             onChange={(e) => setDescuento(e.target.value)}
           />
-          <select>
+          <input
+            className="paletas-container__input"
+            type="text"
+            placeholder="stock"
+            value={stock}
+            onChange={(e) => setStock(e.target.value)}
+          ></input>
+          <select ref={categoriaRef}>
             <option value="paletas">Paleta</option>
             <option value="otros">Otro</option>
             <option value="potes">Pote Familiar</option>
