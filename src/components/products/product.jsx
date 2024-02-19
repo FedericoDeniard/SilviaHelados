@@ -1,72 +1,47 @@
-import { useEffect, useState } from "react";
-import productos from "../../products/paletas.json";
+import React from "react";
 import remove from "../../assets/adminPage/remove.svg";
 import "./product.css";
 
-const Product = ({ producto, onDelete }) => {
-  const [productData, setProductData] = useState(productos[producto]);
+const Product = ({ producto, productId, updateProduct, handleRemove }) => {
+  const { titulo, precio, tamaño } = producto;
 
-  useEffect(() => {
-    console.log(productData);
-  }, [productData]);
-
-  const handleDelete = (index) => {
-    onDelete(index);
-  };
-
-  const handleProductNameChange = (e, key) => {
-    const updatedProductData = {
-      ...productData,
-      [key]: {
-        ...productData[key],
-        name: e.target.value,
-      },
+  const handleInputChange = (field, value) => {
+    const updatedProduct = {
+      ...producto,
+      [field]: value,
     };
-    setProductData(updatedProductData);
+    updateProduct(productId, updatedProduct);
   };
 
-  const handleProductPriceChange = (e, key) => {
-    // Implement your logic to handle product name change here
-  };
-
-  const handleProductSizeChange = (e, key) => {
-    // Implement your logic to handle product name change here
-  };
-
-  const writeProduct = Object.keys(productData).map((key, index) => (
-    <li className="product" key={key}>
+  return (
+    <li className="product">
       <input
         className="product-name"
         type="text"
-        value={productData[key].name}
-        onChange={(e) => handleProductNameChange(e, key)}
+        value={titulo}
+        onChange={(e) => handleInputChange("titulo", e.target.value)}
       />
       <div className="product-priceSize">
-        {" "}
         <input
           className="product-price"
           type="text"
-          value={productos[producto][key].price}
-          onChange={(e) => handleProductPriceChange(e, key)}
+          value={precio}
+          onChange={(e) => handleInputChange("precio", e.target.value)}
         />
         <input
           className="product-size"
           type="text"
-          value={productos[producto][key].size}
-          onChange={(e) => handleProductSizeChange(e, key)}
+          value={tamaño}
+          onChange={(e) => handleInputChange("tamaño", e.target.value)}
         />
       </div>
-
       <img
         src={remove}
         className="remove-icon"
         alt="Remove"
-        onClick={() => handleDelete(index)}
+        onClick={(e) => handleRemove(productId)}
       />
     </li>
-  ));
-
-  return <>{writeProduct}</>;
+  );
 };
-
 export default Product;

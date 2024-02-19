@@ -9,7 +9,7 @@
 
 .paletas-container {
     border-radius: 15px;
-    background-color: red;
+    background-color: #ab4696;
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -19,24 +19,26 @@
 
 .add-container {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
     align-items: center;
     background-color: #ff679a;
     color: #fff;
-    padding: 0 15px;
+    padding: 15px;
     border-radius: 10px;
     width: 250px;
+    height: fit-content;
     justify-content: space-between;
 }
 
-.paletas-container__add {
+.paletas-container__input {
     border-radius: 10px;
     width: 180px;
     padding: 5px 15px;
+    border: 1px solid #000;
 }
 
-
-.add-icon {
-    height: 50px;
-    width: 20px;
-    ;
+.paletas-container__add-button {
+    padding: 5px;
+    border-radius: 10px;
 }
