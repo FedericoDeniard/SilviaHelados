@@ -1,19 +1,19 @@
 import { useEffect, useState, useRef } from "react";
 import Product from "../../components/products/product";
-import remove from "../../assets/adminPage/remove.svg";
-import add from "../../assets/adminPage/add.svg";
 import "./index.css";
+import edit from "../../assets/adminPage/edit.svg";
+import check from "../../assets/adminPage/check.svg";
 
 const AdminPage = () => {
   const storedProductos = localStorage.getItem("productos");
   const initialProductos = storedProductos ? JSON.parse(storedProductos) : [];
 
   const [productos, setProductos] = useState(initialProductos);
-  const [titulo, setTitulo] = useState("");
-  const [precio, setPrecio] = useState("");
-  const [tamaño, setTamaño] = useState("");
-  const [descuento, setDescuento] = useState("");
-  const [stock, setStock] = useState("");
+  const tituloRef = useRef("");
+  const precioRef = useRef("");
+  const tamañoRef = useRef("");
+  const descuentoRef = useRef("");
+  const stockRef = useRef("");
   const categoriaRef = useRef("paletas");
 
   useEffect(() => {
@@ -24,20 +24,21 @@ const AdminPage = () => {
   const addProduct = () => {
     const newProduct = {
       productId: Date.now().toString(),
-      titulo: titulo,
-      precio: precio,
-      tamaño: tamaño,
-      descuento: descuento,
+      titulo: tituloRef.current.value,
+      precio: precioRef.current.value,
+      tamaño: tamañoRef.current.value,
+      descuento: descuentoRef.current.value,
       categoria: categoriaRef.current.value,
-      stock: stock,
+      stock: stockRef.current.value,
     };
     setProductos([...productos, newProduct]);
-    setTitulo("");
-    setPrecio("");
-    setTamaño("");
-    setDescuento("");
+
+    tituloRef.current.value = "";
+    precioRef.current.value = "";
+    tamañoRef.current.value = "";
+    descuentoRef.current.value = "";
+    stockRef.current.value = "";
     categoriaRef.current.value = "paletas";
-    setStock("");
   };
 
   const updateProduct = (updatedProduct) => {
@@ -54,10 +55,30 @@ const AdminPage = () => {
     setProductos(updatedProductos);
   };
 
+  const [editStatus, setEditStatus] = useState(false);
+
+  const editProducts = () => {
+    setEditStatus(!editStatus);
+  };
+
   return (
     <div className="adminpage">
       <h4>Paletas</h4>
       <ul className="paletas-container">
+        <div className="paletas-container__title">
+          <p>Producto</p>
+          <p>Precio</p>
+          <p>Tamaño</p>
+          <p>Descuento</p>
+          <p>Stock</p>
+          <p>Categoria</p>
+          <p>Total</p>
+          <img
+            src={editStatus ? check : edit}
+            className="remove-icon"
+            onClick={editProducts}
+          />
+        </div>
         {productos.map((product) => (
           <Product
             key={product.productId}
@@ -65,44 +86,42 @@ const AdminPage = () => {
             producto={product}
             updateProduct={updateProduct}
             handleRemove={handleRemove}
+            editStatus={editStatus}
           />
         ))}
+      </ul>
+      <ul>
         <li className=" add-container">
           {" "}
           <input
+            ref={tituloRef}
             type="text"
             className="paletas-container__input"
             placeholder="Nombre"
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
           />
           <input
+            ref={precioRef}
             type="text"
             className="paletas-container__input"
             placeholder="Precio"
-            value={precio}
-            onChange={(e) => setPrecio(e.target.value)}
           />
           <input
+            ref={tamañoRef}
             type="text"
             className="paletas-container__input"
             placeholder="Tamaño"
-            value={tamaño}
-            onChange={(e) => setTamaño(e.target.value)}
           />
           <input
+            ref={descuentoRef}
             type="text"
             className="paletas-container__input"
             placeholder="Descuento"
-            value={descuento}
-            onChange={(e) => setDescuento(e.target.value)}
           />
           <input
+            ref={stockRef}
             className="paletas-container__input"
             type="text"
-            placeholder="stock"
-            value={stock}
-            onChange={(e) => setStock(e.target.value)}
+            placeholder="Stock"
           ></input>
           <select ref={categoriaRef}>
             <option value="paletas">Paleta</option>
