@@ -22,6 +22,7 @@
     display: flex;
     padding: 15px;
     gap: 5px;
+    align-items: center;
 }
 
 .paletas-container__title p {
@@ -33,6 +34,10 @@
     color: white;
     background-color: #ff679a;
     text-shadow: 1px 1px #000;
+}
+
+.reorder {
+    cursor: pointer;
 }
 
 .add-container {

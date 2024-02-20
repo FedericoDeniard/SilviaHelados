@@ -63,7 +63,7 @@ const AdminPage = () => {
 
   const [countReOrder, setCountReOrder] = useState(0);
 
-  const reOrder = ({ key }) => {
+  const reOrderNumbers = ({ key }) => {
     let contador = countReOrder;
     contador += 1;
     setCountReOrder(contador);
@@ -81,22 +81,86 @@ const AdminPage = () => {
     }
   };
 
+  const reOrderWords = ({ key }) => {
+    let contador = countReOrder;
+    contador += 1;
+    setCountReOrder(contador);
+    let sortedProducts = [...productos];
+    switch (countReOrder) {
+      case 0:
+        sortedProducts.sort((a, b) => {
+          if (a[key] > b[key]) {
+            return 1;
+          }
+          if (a[key] < b[key]) {
+            return -1;
+          }
+          return 0;
+        });
+        setProductos(sortedProducts);
+        break;
+      case 1:
+        sortedProducts.sort((a, b) => {
+          if (a[key] < b[key]) {
+            return 1;
+          }
+          if (a[key] > b[key]) {
+            return -1;
+          }
+          return 0;
+        });
+        setProductos(sortedProducts);
+        setCountReOrder(0);
+        break;
+    }
+  };
+
   useEffect(() => {
     console.log(countReOrder);
   }, [countReOrder]);
 
   return (
     <div className="adminpage">
-      <h4>Paletas</h4>
+      <h4>Productos</h4>
       <ul className="paletas-container">
         <div className="paletas-container__title">
-          <p>Producto</p>
-          <p onClick={() => reOrder({ key: "precio" })}>Precio</p>
+          <p
+            className="reorder"
+            onClick={() => reOrderWords({ key: "titulo" })}
+          >
+            Producto
+          </p>
+          <p
+            className="reorder"
+            onClick={() => reOrderNumbers({ key: "precio" })}
+          >
+            Precio
+          </p>
           <p>Tamaño</p>
-          <p onClick={() => reOrder({ key: "descuento" })}>Descuento</p>
-          <p onClick={() => reOrder({ key: "stock" })}>Stock</p>
-          <p>Categoria</p>
-          <p onClick={() => reOrder({ key: "total" })}>Total</p>
+          <p
+            className="reorder"
+            onClick={() => reOrderNumbers({ key: "descuento" })}
+          >
+            Descuento
+          </p>
+          <p
+            className="reorder"
+            onClick={() => reOrderNumbers({ key: "stock" })}
+          >
+            Stock
+          </p>
+          <p
+            className="reorder"
+            onClick={() => reOrderWords({ key: "categoria" })}
+          >
+            Categoria
+          </p>
+          <p
+            className="reorder"
+            onClick={() => reOrderNumbers({ key: "total" })}
+          >
+            Total
+          </p>
           <img
             src={editStatus ? check : edit}
             className="remove-icon"
