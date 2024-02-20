@@ -16,10 +16,10 @@ const AdminPage = () => {
   const stockRef = useRef("");
   const categoriaRef = useRef("paletas");
 
-  // useEffect(() => {
-  //   localStorage.setItem("productos", JSON.stringify(productos));
-  //   console.log(productos);
-  // }, [productos]);
+  useEffect(() => {
+    localStorage.setItem("productos", JSON.stringify(productos));
+    console.log(productos);
+  }, [productos]);
 
   const addProduct = () => {
     const newProduct = {
@@ -61,18 +61,42 @@ const AdminPage = () => {
     setEditStatus(!editStatus);
   };
 
+  const [countReOrder, setCountReOrder] = useState(0);
+
+  const reOrder = ({ key }) => {
+    let contador = countReOrder;
+    contador += 1;
+    setCountReOrder(contador);
+    let sortedProducts = [...productos];
+    switch (countReOrder) {
+      case 0:
+        sortedProducts.sort((a, b) => parseFloat(a[key]) - parseFloat(b[key]));
+        setProductos(sortedProducts);
+        break;
+      case 1:
+        sortedProducts.sort((a, b) => parseFloat(b[key]) - parseFloat(a[key]));
+        setProductos(sortedProducts);
+        setCountReOrder(0);
+        break;
+    }
+  };
+
+  useEffect(() => {
+    console.log(countReOrder);
+  }, [countReOrder]);
+
   return (
     <div className="adminpage">
       <h4>Paletas</h4>
       <ul className="paletas-container">
         <div className="paletas-container__title">
           <p>Producto</p>
-          <p>Precio</p>
+          <p onClick={() => reOrder({ key: "precio" })}>Precio</p>
           <p>Tamaño</p>
-          <p>Descuento</p>
-          <p>Stock</p>
+          <p onClick={() => reOrder({ key: "descuento" })}>Descuento</p>
+          <p onClick={() => reOrder({ key: "stock" })}>Stock</p>
           <p>Categoria</p>
-          <p>Total</p>
+          <p onClick={() => reOrder({ key: "total" })}>Total</p>
           <img
             src={editStatus ? check : edit}
             className="remove-icon"

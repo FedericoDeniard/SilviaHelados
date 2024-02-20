@@ -38,7 +38,7 @@ const Product = ({
             {descuento}
           </p>
           <p type="text" className="stock">
-            {descuento}
+            {stock}
           </p>
           <p>{categoria}</p>
           <p className="product-total">${total}</p>
