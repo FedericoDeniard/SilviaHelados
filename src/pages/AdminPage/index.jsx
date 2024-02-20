@@ -16,10 +16,10 @@ const AdminPage = () => {
   const stockRef = useRef("");
   const categoriaRef = useRef("paletas");
 
-  useEffect(() => {
-    localStorage.setItem("productos", JSON.stringify(productos));
-    console.log(productos);
-  }, [productos]);
+  // useEffect(() => {
+  //   localStorage.setItem("productos", JSON.stringify(productos));
+  //   console.log(productos);
+  // }, [productos]);
 
   const addProduct = () => {
     const newProduct = {
